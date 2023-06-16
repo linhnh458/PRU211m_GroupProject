@@ -11,10 +11,19 @@ public class BulletScript : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, bulletLifetime);
     }
     void Update()
     {
         rigidbody.velocity = transform.up * bulletSpeed;
+        Destroy(gameObject, bulletLifetime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 }
