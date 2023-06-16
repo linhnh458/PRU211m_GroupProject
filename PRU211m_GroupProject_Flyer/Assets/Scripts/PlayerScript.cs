@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     float fireTimer; // when to shoot
     void Start()
     {
-        rigidbody= GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -37,5 +38,19 @@ public class PlayerScript : MonoBehaviour
     {
         // shoot bullet right at the position of firing point
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            Debug.Log("Hit pipe");
+        }
+    }
+
+    private void Flicker(GameObject gameObject)
+    {
+        Debug.Log("Player just hit an animal");
     }
 }

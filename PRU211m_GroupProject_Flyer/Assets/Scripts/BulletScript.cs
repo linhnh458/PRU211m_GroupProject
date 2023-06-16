@@ -23,6 +23,9 @@ public class BulletScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
+        {
             Destroy(collision.gameObject);
         }
     }
