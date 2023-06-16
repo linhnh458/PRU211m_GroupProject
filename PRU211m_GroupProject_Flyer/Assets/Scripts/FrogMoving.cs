@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fro : MonoBehaviour
+public class FrogMoving : MonoBehaviour
 {
     public float verticalSpeed = 2f;
     public float topY = 5f;
