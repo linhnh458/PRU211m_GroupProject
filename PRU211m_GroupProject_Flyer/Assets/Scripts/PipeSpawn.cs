@@ -7,6 +7,7 @@ public class PipeSpawn : MonoBehaviour
     public GameObject TotalPipe;
     public GameObject frog;
     public GameObject spider;
+    public GameObject boss;
     float spawnRate = 2f;
     float timer = 0.0f;
     float heightOffset = 4f;
@@ -15,6 +16,8 @@ public class PipeSpawn : MonoBehaviour
 
     private float spawnFrogThreshold = 0.3f;
     private float spawnSpiderThreshold = 0.3f;
+
+    int count = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +41,7 @@ public class PipeSpawn : MonoBehaviour
             spawnPine();
             timer = 0;
         }
-
+        
     }
 
     void spawnPine()
@@ -50,8 +53,15 @@ public class PipeSpawn : MonoBehaviour
     }
     void spawnMonster()
     {
-        SpawnFrog();
-        SpawnSpider();
+        if (count < 10)
+        {
+            SpawnFrog();
+            SpawnSpider();
+        }
+        if(count >= 10)
+        {
+            SpawnBoss();
+        }
     }
     void SpawnSpider()
     {
@@ -60,6 +70,7 @@ public class PipeSpawn : MonoBehaviour
         if (randomValueSpider <= spawnSpiderThreshold)
         {
             Instantiate(spider, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 2), 5, 0), transform.rotation);
+            count++;
             spawnSpiderThreshold = spawnSpiderThreshold + 0.05f;
             if (spawnSpiderThreshold >= 0.7f)
             {
@@ -75,12 +86,23 @@ public class PipeSpawn : MonoBehaviour
         if (randomValueFrog <= spawnFrogThreshold)
         {
             Instantiate(frog, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 2), -5, 0), transform.rotation);
+            count++;
             spawnFrogThreshold = spawnFrogThreshold + 0.05f;
             if (spawnFrogThreshold >= 0.7f)
             {
                 spawnFrogThreshold = 0.7f;
             }
         }
+    }
+    
+    void SpawnBoss()
+    {
+        if(count >= 10)
+        {
+            Instantiate(boss, new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1), 0, 0), transform.rotation);
+            count = 0;
+        }
+        
     }
 
 }

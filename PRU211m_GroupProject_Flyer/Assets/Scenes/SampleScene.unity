@@ -239,6 +239,7 @@ MonoBehaviour:
   TotalPipe: {fileID: 2075629273506024470, guid: 0f74a64c202bf254f9c549fa57cfa4f8, type: 3}
   frog: {fileID: 860762421380952659, guid: b27c5188725d211469358d91c20d7a26, type: 3}
   spider: {fileID: 1332883511198170479, guid: b602d78136b4b0b41a583712aafbda7b, type: 3}
+  boss: {fileID: 7417522170934370598, guid: 8b258d00dce567444934a038203ced23, type: 3}
 --- !u!4 &1279973126
 Transform:
   m_ObjectHideFlags: 0
