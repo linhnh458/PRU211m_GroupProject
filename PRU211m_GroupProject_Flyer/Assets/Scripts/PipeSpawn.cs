@@ -7,7 +7,7 @@ public class PipeSpawn : MonoBehaviour
     public GameObject TotalPipe;
     public GameObject frog;
     public GameObject spider;
-    float spawnRate = 4f;
+    float spawnRate = 2f;
     float timer = 0.0f;
     float heightOffset = 4f;
     private float initialDelay = 2.4f;
