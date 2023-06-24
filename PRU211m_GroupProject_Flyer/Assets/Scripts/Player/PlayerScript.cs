@@ -37,16 +37,22 @@ public class PlayerScript : MonoBehaviour
     void Shoot()
     {
         // shoot bullet right at the position of firing point
-        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        GameObject bullet = BulletPooling.instance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = firingPoint.position;
+            bullet.transform.rotation = firingPoint.rotation;
+            bullet.SetActive(true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Pipe"))
         {
-            Destroy(gameObject);
+            GetComponent<HealthManager>().TakeDamage(1);
             Debug.Log("Hit pipe");
-        }*/
+        }
     }
 
     private void Flicker(GameObject gameObject)

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    public GameObject bulletPrefab;  // Prefab c?a viên ??n
-    public string playerTag = "Player";  // Tag c?a ??i t??ng ng??i ch?i
-    public float bulletSpeed = 5f;  // T?c ?? ??n
+    [SerializeField] GameObject bulletPrefab;  // Prefab c?a viên ??n
+    [SerializeField] string playerTag = "Player";  // Tag c?a ??i t??ng ng??i ch?i
+    [SerializeField] float bulletSpeed = 5f;  // T?c ?? ??n
 
     private float fireRate = 1f;  
     private float nextFireTime = 0f;  // Th?i ?i?m b?n ??n ti?p theo

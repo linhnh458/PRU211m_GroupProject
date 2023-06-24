@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PipeSpawn : MonoBehaviour
 {
-    public GameObject TotalPipe;
-    public GameObject frog;
-    public GameObject spider;
-    public GameObject boss;
-    float spawnRate = 2f;
+    [SerializeField] GameObject TotalPipe;
+    [SerializeField] GameObject frog;
+    [SerializeField] GameObject spider;
+    [SerializeField] GameObject boss;
+    float spawnRate = 3f;
     float timer = 0.0f;
     float heightOffset = 4f;
     private float initialDelay = 2.4f;
