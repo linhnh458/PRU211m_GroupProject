@@ -30,7 +30,6 @@ public class BulletScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
-            //collision.gameObject.SetActive(false);
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
