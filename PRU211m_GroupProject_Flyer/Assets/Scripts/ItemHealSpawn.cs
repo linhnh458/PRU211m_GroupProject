@@ -25,8 +25,8 @@ public class ItemHealSpawn : MonoBehaviour
             if(randomValueSpider <= itemHealThreshold)
             {
                 Instantiate(Heal, transform.position, transform.rotation);
-                Destroy(gameObject);
             }
+            Destroy(gameObject);
         }
     }
 }
