@@ -5,9 +5,13 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 10f;
-    [SerializeField] float bulletLifetime = 4f;
+    [SerializeField] float bulletLifetime = 3.5f;
     Rigidbody2D rigidbody;
-    
+
+    // audio
+    [SerializeField] AudioSource hitSoundSource;
+    [SerializeField] AudioClip hitSoundClip;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -21,12 +25,15 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pipe"))
         {
+            AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
         }
         if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
             //collision.gameObject.SetActive(false);
+            AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
     }
 
@@ -34,12 +41,7 @@ public class BulletScript : MonoBehaviour
     private void OnEnable()
     {
         // wait for x seconds before disable the bullet
-        StartCoroutine(WaitToDisable(bulletLifetime));
+        StartCoroutine(GetComponent<BulletPooling>().DisableBullet(gameObject, bulletLifetime));
     }
 
-    private IEnumerator WaitToDisable(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        gameObject.SetActive(false);
-    }
 }

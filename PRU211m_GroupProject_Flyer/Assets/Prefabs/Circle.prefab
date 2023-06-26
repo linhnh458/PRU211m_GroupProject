@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6947150792958599842}
   - component: {fileID: 4338116021286587219}
   - component: {fileID: -3155922347873513962}
+  - component: {fileID: 4269894878837612319}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Frog
@@ -114,3 +115,19 @@ MonoBehaviour:
   verticalSpeed: 2
   topY: 5
   bottomY: -5
+--- !u!58 &4269894878837612319
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860762421380952659}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

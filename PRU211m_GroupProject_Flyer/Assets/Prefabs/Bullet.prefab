@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6901051152163870209}
   - component: {fileID: 6901051152163870210}
   - component: {fileID: 6901051152163870208}
+  - component: {fileID: -7882273866673143353}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -138,3 +139,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 9
   bulletLifetime: 4
+  hitSoundSource: {fileID: 7407837040327941083, guid: 6de96b175338c934997a2e2581cc1958, type: 3}
+  hitSoundClip: {fileID: 8300000, guid: cad20486f008b8f41a6797c3a550b743, type: 3}
+--- !u!114 &-7882273866673143353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901051152163870221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035f83f422827ba4091a84a3f72c1ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolSize: 10
+  bulletPrefab: {fileID: 6901051152163870221}

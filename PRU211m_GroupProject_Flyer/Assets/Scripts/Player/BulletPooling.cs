@@ -39,4 +39,11 @@ public class BulletPooling : MonoBehaviour
         }
         return null;
     }
+
+    public IEnumerator DisableBullet(GameObject obj, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        obj.SetActive(false);
+    }
+
 }

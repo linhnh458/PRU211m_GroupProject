@@ -13,6 +13,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] Transform firingPoint;
     [SerializeField] GameObject bulletPrefab;
     float fireTimer; // when to shoot
+
+    // audio
+    [SerializeField] AudioSource hitSoundSource;
+    [SerializeField] AudioClip hitSoundClip;
+    [SerializeField] AudioClip deadSoundClip;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -50,13 +55,16 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pipe"))
         {
-            GetComponent<HealthManager>().TakeDamage(1);
+            GetComponent<HealthManager>().TakeDamage(1); // lose a heart
+            AudioPooling.audioInstance.PlaySound(deadSoundClip);
             Debug.Log("Hit pipe");
+        }
+        if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
+        {
+            GetComponent<HealthManager>().TakeDamage(1); // lose a heart
+            AudioPooling.audioInstance.PlaySound(hitSoundClip); 
+            collision.gameObject.SetActive(false); // kill animal
         }
     }
 
-    private void Flicker(GameObject gameObject)
-    {
-        Debug.Log("Player just hit an animal");
-    }
 }
