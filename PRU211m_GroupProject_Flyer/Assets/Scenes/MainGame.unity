@@ -607,8 +607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalPipe: {fileID: 2330414366461658464, guid: d29a0cffafd481f41a4de5f0b82c458b, type: 3}
-  frog: {fileID: 1332883511198170479, guid: b602d78136b4b0b41a583712aafbda7b, type: 3}
-  spider: {fileID: 7354387159287753688, guid: 744cbc3f411dcba40915d1f7f70a245d, type: 3}
+  frog: {fileID: 860762421380952659, guid: b27c5188725d211469358d91c20d7a26, type: 3}
+  spider: {fileID: 1332883511198170479, guid: b602d78136b4b0b41a583712aafbda7b, type: 3}
   boss: {fileID: 7417522170934370598, guid: 8b258d00dce567444934a038203ced23, type: 3}
 --- !u!4 &1279973126
 Transform:

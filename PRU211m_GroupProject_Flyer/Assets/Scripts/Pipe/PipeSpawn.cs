@@ -8,7 +8,7 @@ public class PipeSpawn : MonoBehaviour
     [SerializeField] GameObject frog;
     [SerializeField] GameObject spider;
     [SerializeField] GameObject boss;
-    float spawnRate = 3f;
+    float spawnRate = 2f;
     float timer = 0.0f;
     float heightOffset = 4f;
     private float initialDelay = 2.4f;

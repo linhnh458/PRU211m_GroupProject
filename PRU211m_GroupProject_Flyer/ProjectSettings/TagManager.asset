@@ -7,7 +7,10 @@ TagManager:
   - Boss
   - Frog
   - Spider
-  - Playerr
+  - Heal
+  - Enemy
+  - Bullet
+  - Pipe
   layers:
   - Default
   - TransparentFX
