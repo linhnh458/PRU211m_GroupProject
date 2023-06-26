@@ -22,7 +22,6 @@ public class PipeSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnPine();
         Invoke("spawnMonster", initialDelay);
 
         // L?p l?i vi?c spawn v?t th? sau m?i kho?ng th?i gian
@@ -69,7 +68,7 @@ public class PipeSpawn : MonoBehaviour
 
         if (randomValueSpider <= spawnSpiderThreshold)
         {
-            Instantiate(spider, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 2), 5, 0), transform.rotation);
+            Instantiate(spider, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 1 / 2), 5, 0), transform.rotation);
             count++;
             spawnSpiderThreshold = spawnSpiderThreshold + 0.05f;
             if (spawnSpiderThreshold >= 0.7f)
@@ -85,7 +84,7 @@ public class PipeSpawn : MonoBehaviour
 
         if (randomValueFrog <= spawnFrogThreshold)
         {
-            Instantiate(frog, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 2), -5, 0), transform.rotation);
+            Instantiate(frog, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 1 / 2), -5, 0), transform.rotation);
             count++;
             spawnFrogThreshold = spawnFrogThreshold + 0.05f;
             if (spawnFrogThreshold >= 0.7f)
@@ -99,7 +98,7 @@ public class PipeSpawn : MonoBehaviour
     {
         if(count >= 10)
         {
-            Instantiate(boss, new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1), 0, 0), transform.rotation);
+            Instantiate(boss, new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1 / 2), 0, 0), transform.rotation);
             count = 0;
         }
         
