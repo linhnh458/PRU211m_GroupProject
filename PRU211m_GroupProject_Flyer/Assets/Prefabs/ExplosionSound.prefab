@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2592919323221963243}
   - component: {fileID: 7407837040327941083}
   m_Layer: 0
-  m_Name: hit
+  m_Name: ExplosionSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

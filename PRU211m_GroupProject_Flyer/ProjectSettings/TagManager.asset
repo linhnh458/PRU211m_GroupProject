@@ -11,14 +11,15 @@ TagManager:
   - Enemy
   - Bullet
   - Pipe
+  - Poison
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BossBullet
   - Water
   - UI
-  - 
+  - Pipe
   - 
   - 
   - 

@@ -5,17 +5,16 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 10f;
-    [SerializeField] float bulletLifetime = 3.5f;
     Rigidbody2D rigidbody;
 
     // audio
-    [SerializeField] AudioSource hitSoundSource;
     [SerializeField] AudioClip hitSoundClip;
 
-    void Start()
+    private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
+   
     void Update()
     {
         rigidbody.velocity = transform.up * bulletSpeed;
@@ -34,13 +33,6 @@ public class BulletScript : MonoBehaviour
             gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
         }
-    }
-
-    // OnEnable is called every time the object is enabled
-    private void OnEnable()
-    {
-        // wait for x seconds before disable the bullet
-        StartCoroutine(GetComponent<BulletPooling>().DisableBullet(gameObject, bulletLifetime));
     }
 
 }

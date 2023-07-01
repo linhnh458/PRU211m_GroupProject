@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
             bullet.transform.position = firingPoint.position;
             bullet.transform.rotation = firingPoint.rotation;
             bullet.SetActive(true);
+            BulletPooling.instance.DisbleBullet(bullet);
         }
     }
 
@@ -64,6 +65,12 @@ public class PlayerScript : MonoBehaviour
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
             AudioPooling.audioInstance.PlaySound(hitSoundClip); 
             collision.gameObject.SetActive(false); // kill animal
+        }
+        if (collision.gameObject.CompareTag("Poison"))
+        {
+            GetComponent<HealthManager>().TakeDamage(1); // lose a heart
+            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            collision.gameObject.SetActive(false); // disable boss bullet
         }
     }
 

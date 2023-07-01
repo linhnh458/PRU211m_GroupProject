@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2330414365009906706}
   - component: {fileID: 2330414365009906704}
   - component: {fileID: 2330414365009906705}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BottomPipe
   m_TagString: Pipe
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 2330414365157868774}
   - component: {fileID: 2330414365157868772}
   - component: {fileID: 2330414365157868773}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TopPipe
   m_TagString: Pipe
   m_Icon: {fileID: 0}

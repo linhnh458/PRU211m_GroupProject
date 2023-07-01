@@ -7,8 +7,9 @@ public class BulletPooling : MonoBehaviour
     public static BulletPooling instance;
 
     public static List<GameObject> pooledObjects = new List<GameObject>();
-    [SerializeField] int poolSize = 10;
+    [SerializeField] int poolSize = 7;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float disableTime = 3f; // disable bullet after x seconds
     private void Awake()
     {
         if (instance == null)
@@ -40,10 +41,16 @@ public class BulletPooling : MonoBehaviour
         return null;
     }
 
-    public IEnumerator DisableBullet(GameObject obj, float waitTime)
+    // Disable bullet
+    public void DisbleBullet(GameObject obj)
     {
-        yield return new WaitForSeconds(waitTime);
-        obj.SetActive(false);
+        StartCoroutine(DisableAfterTime(obj));
     }
 
+    private IEnumerator DisableAfterTime(GameObject obj)
+    {
+        yield return new WaitForSeconds(disableTime);
+        obj.SetActive(false);
+        Debug.Log("Bullet disabled");
+    }
 }

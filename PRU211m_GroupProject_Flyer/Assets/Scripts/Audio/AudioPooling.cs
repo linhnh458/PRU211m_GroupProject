@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioPooling : MonoBehaviour
 {
     public static AudioPooling audioInstance;
-    [SerializeField] int poolSize = 5;
+    [SerializeField] int poolSize = 3;
     [SerializeField] AudioSource audioSourcePrefab;
     private static List<AudioSource> poolAudioSources = new List<AudioSource>();
 
@@ -15,9 +15,7 @@ public class AudioPooling : MonoBehaviour
         {
             audioInstance = this;
         }
-    }
-    private void Start()
-    {
+
         for (int i = 0; i < poolSize; i++)
         {
             AddAudioSourceToPool();
