@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8961684007282066961}
   - component: {fileID: 71982669515212064}
   - component: {fileID: -4694241014337613302}
+  - component: {fileID: -1810199576664399239}
   m_Layer: 0
   m_Name: Heal
   m_TagString: Heal
@@ -98,3 +99,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.01
+--- !u!58 &-1810199576664399239
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316474835940650963}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49999997

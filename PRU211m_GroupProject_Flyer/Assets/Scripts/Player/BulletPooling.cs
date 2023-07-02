@@ -42,7 +42,7 @@ public class BulletPooling : MonoBehaviour
     }
 
     // Disable bullet
-    public void DisbleBullet(GameObject obj)
+    public void DisableObject(GameObject obj)
     {
         StartCoroutine(DisableAfterTime(obj));
     }
@@ -51,6 +51,5 @@ public class BulletPooling : MonoBehaviour
     {
         yield return new WaitForSeconds(disableTime);
         obj.SetActive(false);
-        Debug.Log("Bullet disabled");
     }
 }

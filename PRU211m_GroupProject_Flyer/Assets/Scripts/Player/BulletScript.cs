@@ -6,13 +6,14 @@ public class BulletScript : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 10f;
     Rigidbody2D rigidbody;
-
     // audio
     [SerializeField] AudioClip hitSoundClip;
 
+    ScoreScript scoreManager;
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        scoreManager = GameObject.FindGameObjectWithTag("Logic").GetComponent<ScoreScript>();
     }
    
     void Update()
@@ -32,6 +33,12 @@ public class BulletScript : MonoBehaviour
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
+            scoreManager.AddScore(1);
+        }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            gameObject.SetActive(false);
         }
     }
 

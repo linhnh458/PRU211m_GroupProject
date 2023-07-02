@@ -13,9 +13,12 @@ public class BossController : MonoBehaviour
     private Transform player;  // Transform c?a ng??i ch?i
     [SerializeField] float bulletLifetime = 4f;
 
+    ScoreScript scoreManager;
+    private int hitCount = 0; // count bullets hit the boss
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
+        scoreManager = GameObject.FindGameObjectWithTag("Logic").GetComponent<ScoreScript>();
     }
 
     private void Update()
@@ -33,5 +36,18 @@ public class BossController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         Destroy(bullet, bulletLifetime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            hitCount++;
+        }
+        if(hitCount >= 3)
+        {
+            gameObject.SetActive(false);
+            scoreManager.AddScore(3);
+        }
     }
 }

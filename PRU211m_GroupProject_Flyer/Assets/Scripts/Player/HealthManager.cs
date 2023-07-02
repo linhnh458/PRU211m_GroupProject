@@ -17,7 +17,6 @@ public class HealthManager : MonoBehaviour
         {
             currentHeart = maxHeart; // cannot exceed the max num of hearts
         }
-        // display hearts that player has 
         for (int i = 0; i < hearts.Length; i++)
         {
             // display current number of hearts that player has
@@ -39,7 +38,7 @@ public class HealthManager : MonoBehaviour
 
         if (currentHeart <= 0)
         {
-            Debug.Log("Dead");
+            currentHeart = 0;
         }
     }
 

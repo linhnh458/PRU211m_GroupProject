@@ -48,7 +48,7 @@ public class PlayerScript : MonoBehaviour
             bullet.transform.position = firingPoint.position;
             bullet.transform.rotation = firingPoint.rotation;
             bullet.SetActive(true);
-            BulletPooling.instance.DisbleBullet(bullet);
+            BulletPooling.instance.DisableObject(bullet);
         }
     }
 
@@ -58,15 +58,29 @@ public class PlayerScript : MonoBehaviour
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
             AudioPooling.audioInstance.PlaySound(deadSoundClip);
-            Debug.Log("Hit pipe");
         }
-        if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
+        else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
             AudioPooling.audioInstance.PlaySound(hitSoundClip); 
             collision.gameObject.SetActive(false); // kill animal
         }
-        if (collision.gameObject.CompareTag("Poison"))
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            GetComponent<HealthManager>().TakeDamage(1); // lose a heart
+            AudioPooling.audioInstance.PlaySound(deadSoundClip);
+        }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Heal"))
+        {
+            GetComponent<HealthManager>().HealHealth(1); // get a heart
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.CompareTag("Poison"))
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
