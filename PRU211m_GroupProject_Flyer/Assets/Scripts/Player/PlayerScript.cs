@@ -70,6 +70,11 @@ public class PlayerScript : MonoBehaviour
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // kill animal
+            // spawn exlposion 
+            GameObject ps = ParticleSystemPool.instance.GetPooledParticleSystem();
+            ps.transform.position = transform.position;
+            ps.transform.rotation = Quaternion.identity;
+            ParticleSystemPool.instance.EnableObject(ps);
         }
         else if (collision.gameObject.CompareTag("Boss"))
         {
@@ -92,6 +97,10 @@ public class PlayerScript : MonoBehaviour
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // disable boss bullet
+            GameObject ps = ParticleSystemPool.instance.GetPooledParticleSystem();
+            ps.transform.position = transform.position;
+            ps.transform.rotation = Quaternion.identity;
+            ParticleSystemPool.instance.EnableObject(ps);
         }
     }
 

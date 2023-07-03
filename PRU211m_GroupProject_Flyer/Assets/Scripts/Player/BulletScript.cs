@@ -34,6 +34,12 @@ public class BulletScript : MonoBehaviour
             gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
             scoreManager.AddScore(1);
+            // explostion effect
+            GameObject ps = ParticleSystemPool.instance.GetPooledParticleSystem();
+            Debug.Log(ps);
+            ps.transform.position = transform.position;
+            ps.transform.rotation = Quaternion.identity;
+            ParticleSystemPool.instance.EnableObject(ps);
         }
         if (collision.gameObject.CompareTag("Boss"))
         {

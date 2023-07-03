@@ -251,6 +251,8 @@ MonoBehaviour:
   hitSoundSource: {fileID: 186462740}
   hitSoundClip: {fileID: 8300000, guid: cad20486f008b8f41a6797c3a550b743, type: 3}
   deadSoundClip: {fileID: 8300000, guid: f8053bc5786edd245a90a3e34c3e6342, type: 3}
+  blinkDuration: 1.5
+  blinkInterval: 0.3
 --- !u!61 &186462735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1664,6 +1666,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1588060588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588060590}
+  - component: {fileID: 1588060589}
+  m_Layer: 0
+  m_Name: ParticleSystemPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1588060589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588060588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d02539463811942814ccff032ec783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 8310034824187484392, guid: 74a931f3d2e39e3419a48e095a6cba4f, type: 3}
+--- !u!4 &1588060590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588060588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 287.99344, y: 243.19727, z: -2.6010919}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1755959272
 GameObject:
   m_ObjectHideFlags: 0
