@@ -12,6 +12,7 @@ public class BossController : MonoBehaviour
     private float nextFireTime = 0f;  // Th?i ?i?m b?n ??n ti?p theo
     private Transform player;  // Transform c?a ng??i ch?i
     [SerializeField] float bulletLifetime = 4f;
+    private int healOfBoss = 3;
 
     private void Start()
     {
@@ -33,5 +34,16 @@ public class BossController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         Destroy(bullet, bulletLifetime);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            healOfBoss--;
+            if(healOfBoss == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
