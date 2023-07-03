@@ -13,14 +13,19 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] Transform firingPoint;
     [SerializeField] GameObject bulletPrefab;
     float fireTimer; // when to shoot
-
     // audio
     [SerializeField] AudioSource hitSoundSource;
     [SerializeField] AudioClip hitSoundClip;
     [SerializeField] AudioClip deadSoundClip;
+    // blinking effect
+    [SerializeField] float blinkDuration = 1.5f; // Duration of blinking in seconds
+    [SerializeField] float blinkInterval = 0.3f; // Interval between blink toggles
+    private SpriteRenderer rend;
+    private bool isBlinking = false;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        rend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -62,7 +67,8 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
-            AudioPooling.audioInstance.PlaySound(hitSoundClip); 
+            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // kill animal
         }
         else if (collision.gameObject.CompareTag("Boss"))
@@ -84,8 +90,27 @@ public class PlayerScript : MonoBehaviour
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // disable boss bullet
         }
+    }
+
+    IEnumerator Blink()
+    {
+        // Store the initial visibility state of the object
+        bool initialState = rend.enabled;
+        // Calculate the number of blink toggles based on duration and interval
+        int toggleCount = Mathf.RoundToInt(blinkDuration / blinkInterval);
+        for (int i = 0; i < toggleCount; i++)
+        {
+            // Toggle the visibility state of the object
+            rend.enabled = !rend.enabled;
+
+            // Wait for the specified interval
+            yield return new WaitForSeconds(blinkInterval);
+        }
+        // Restore the initial visibility state after blinking is done
+        rend.enabled = initialState;
     }
 
 }

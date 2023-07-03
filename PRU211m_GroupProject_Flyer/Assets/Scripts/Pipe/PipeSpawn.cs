@@ -37,13 +37,13 @@ public class PipeSpawn : MonoBehaviour
         }
         else
         {
-            spawnPine();
+            spawnPipe();
             timer = 0;
         }
         
     }
 
-    void spawnPine()
+    void spawnPipe()
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
