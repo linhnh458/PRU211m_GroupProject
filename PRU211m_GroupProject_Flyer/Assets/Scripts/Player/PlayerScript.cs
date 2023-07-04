@@ -22,6 +22,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float blinkInterval = 0.3f; // Interval between blink toggles
     private SpriteRenderer rend;
     private bool isBlinking = false;
+
+    [SerializeField] Joystick joystick;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -31,7 +33,15 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float movement = Input.GetAxisRaw("Vertical");
+        float movement;
+        if (joystick.Vertical >= .2f || joystick.Vertical <= -.2f)
+        {
+            movement = joystick.Vertical;
+        }
+        else
+        {
+            movement = 0f;
+        }
         rigidbody.velocity = new Vector2(0, movement) * speed;
         if (Input.GetKey(KeyCode.Space) && fireTimer <= 0)
         {
@@ -44,7 +54,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         // shoot bullet right at the position of firing point
         GameObject bullet = BulletPooling.instance.GetPooledObject();
