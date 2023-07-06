@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +24,10 @@ public class PlayerScript : MonoBehaviour
     private bool isBlinking = false;
 
     [SerializeField] Joystick joystick;
+    [SerializeField] int currentAmmo = 10, maxAmmo = 15;
+
+    public static object Instance { get; internal set; }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -34,7 +38,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         float movement;
-        if (joystick.Vertical >= .2f || joystick.Vertical <= -.2f)
+        if (joystick.Vertical >= .2f || joystick.Vertical <= -.2f) // When the joystick is moved to the circle border, this code will run
         {
             movement = joystick.Vertical;
         }
@@ -56,7 +60,22 @@ public class PlayerScript : MonoBehaviour
 
     public void Shoot()
     {
-        // shoot bullet right at the position of firing point
+        if (currentAmmo > 0)
+        {
+            // Bắn đạn và giảm số đạn
+            GameObject bullet = BulletPooling.instance.GetPooledObject();
+            if (bullet != null)
+            {
+                bullet.transform.position = firingPoint.position;
+                bullet.transform.rotation = firingPoint.rotation;
+                bullet.SetActive(true);
+                BulletPooling.instance.DisableObject(bullet);
+            }
+            currentAmmo--;
+        }
+
+
+/*        // shoot bullet right at the position of firing point
         GameObject bullet = BulletPooling.instance.GetPooledObject();
         if (bullet != null)
         {
@@ -64,7 +83,7 @@ public class PlayerScript : MonoBehaviour
             bullet.transform.rotation = firingPoint.rotation;
             bullet.SetActive(true);
             BulletPooling.instance.DisableObject(bullet);
-        }
+        }*/
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -130,6 +149,13 @@ public class PlayerScript : MonoBehaviour
         }
         // Restore the initial visibility state after blinking is done
         rend.enabled = initialState;
+    }
+
+    public void AddAmmo(int ammoAmount)
+    {
+        currentAmmo += ammoAmount;
+        if (currentAmmo > maxAmmo)
+            currentAmmo = maxAmmo;
     }
 
 }
