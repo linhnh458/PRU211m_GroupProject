@@ -253,6 +253,9 @@ MonoBehaviour:
   deadSoundClip: {fileID: 8300000, guid: f8053bc5786edd245a90a3e34c3e6342, type: 3}
   blinkDuration: 1.5
   blinkInterval: 0.3
+  joystick: {fileID: 0}
+  currentAmmo: 10
+  maxAmmo: 15
 --- !u!61 &186462735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -263,7 +266,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.016326994, y: 0.0014612116}

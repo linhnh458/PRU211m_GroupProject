@@ -8,6 +8,7 @@ public class PipeSpawn : MonoBehaviour
     [SerializeField] GameObject frog;
     [SerializeField] GameObject spider;
     [SerializeField] GameObject boss;
+    [SerializeField] GameObject ammo;
     float spawnRate = 2f;
     float timer = 0.0f;
     float heightOffset = 4f;
@@ -38,6 +39,7 @@ public class PipeSpawn : MonoBehaviour
         else
         {
             spawnPipe();
+            SpawnAmmo();
             timer = 0;
         }
         
@@ -50,6 +52,13 @@ public class PipeSpawn : MonoBehaviour
         Instantiate(TotalPipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
 
     }
+
+    void SpawnAmmo()
+    {
+        float lowestPoint = transform.position.y - heightOffset;
+        float highestPoint = transform.position.y + heightOffset;
+        Instantiate(ammo, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+    }
     void spawnMonster()
     {
         if (count < 10)
@@ -60,6 +69,7 @@ public class PipeSpawn : MonoBehaviour
         if(count >= 10)
         {
             SpawnBoss();
+            SpawnAmmo();
         }
     }
     void SpawnSpider()
