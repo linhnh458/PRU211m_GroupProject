@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5581213605051673689}
   - component: {fileID: 5581213605051673688}
   - component: {fileID: 5581213605051673691}
-  - component: {fileID: 6029963583694538010}
-  - component: {fileID: -1121948918270706764}
+  - component: {fileID: 8099537878618341035}
+  - component: {fileID: -234619483863833676}
   m_Layer: 0
   m_Name: Ammo
   m_TagString: Ammo
@@ -126,7 +126,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7685ee4080013149b18ac0706aa5d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &6029963583694538010
+  ammoAmount: 5
+--- !u!114 &8099537878618341035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581213605051673690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a82bfd9ba4a2394d99451e6b8bb0547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.05
+--- !u!50 &-234619483863833676
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -147,16 +161,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-1121948918270706764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5581213605051673690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a82bfd9ba4a2394d99451e6b8bb0547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.05

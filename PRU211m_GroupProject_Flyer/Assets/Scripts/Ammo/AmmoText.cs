@@ -8,18 +8,20 @@ public class AmmoText : MonoBehaviour
     Text text;
     public static int ammoAmount = 0;
 
-    private void Start()
+    // Use this for initialization
+    void Start()
     {
         text = GetComponent<Text>();
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        if(ammoAmount >= 15)
+        if (ammoAmount > 15)
         {
             text.text = "15/15";
         }
-        else if(ammoAmount > 0)
+        else if (ammoAmount > 0)
         {
             text.text = "" + ammoAmount + "/15";
         }
@@ -29,3 +31,4 @@ public class AmmoText : MonoBehaviour
         }
     }
 }
+

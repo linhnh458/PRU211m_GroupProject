@@ -59,7 +59,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Shoot()
     {
-        if(AmmoText.ammoAmount > 0)
+        if (AmmoText.ammoAmount > 0)
         {
             AmmoText.ammoAmount -= 1;
             // Bắn đạn và giảm số đạn
@@ -72,20 +72,18 @@ public class PlayerScript : MonoBehaviour
                 BulletPooling.instance.DisableObject(bullet);
             }
         }
+
+
+/*        // shoot bullet right at the position of firing point
+        GameObject bullet = BulletPooling.instance.GetPooledObject();
+        if (bullet != null)
+        {
+            bullet.transform.position = firingPoint.position;
+            bullet.transform.rotation = firingPoint.rotation;
+            bullet.SetActive(true);
+            BulletPooling.instance.DisableObject(bullet);
+        }*/
     }
-
-
-
-
-    /*        // shoot bullet right at the position of firing point
-            GameObject bullet = BulletPooling.instance.GetPooledObject();
-            if (bullet != null)
-            {
-                bullet.transform.position = firingPoint.position;
-                bullet.transform.rotation = firingPoint.rotation;
-                bullet.SetActive(true);
-                BulletPooling.instance.DisableObject(bullet);
-            }*/
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -111,7 +109,7 @@ public class PlayerScript : MonoBehaviour
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
             AudioPooling.audioInstance.PlaySound(deadSoundClip);
         }
-
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -152,11 +150,11 @@ public class PlayerScript : MonoBehaviour
         rend.enabled = initialState;
     }
 
-    /*    public void AddAmmo(int ammoAmount)
-        {
-            currentAmmo += ammoAmount;
-            if (currentAmmo > maxAmmo)
-                currentAmmo = maxAmmo;
-        }*/
-}
+/*    public void AddAmmo(int ammoAmount)
+    {
+        currentAmmo += ammoAmount;
+        if (currentAmmo > maxAmmo)
+            currentAmmo = maxAmmo;
+    }*/
 
+}

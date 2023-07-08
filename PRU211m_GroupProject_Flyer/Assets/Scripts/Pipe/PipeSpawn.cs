@@ -39,7 +39,7 @@ public class PipeSpawn : MonoBehaviour
         else
         {
             spawnPipe();
-            SpawnAmmo();
+            spawnAmmo();
             timer = 0;
         }
         
@@ -53,11 +53,12 @@ public class PipeSpawn : MonoBehaviour
 
     }
 
-    void SpawnAmmo()
+    void spawnAmmo()
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
         Instantiate(ammo, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+
     }
     void spawnMonster()
     {
@@ -69,7 +70,6 @@ public class PipeSpawn : MonoBehaviour
         if(count >= 10)
         {
             SpawnBoss();
-            SpawnAmmo();
         }
     }
     void SpawnSpider()
