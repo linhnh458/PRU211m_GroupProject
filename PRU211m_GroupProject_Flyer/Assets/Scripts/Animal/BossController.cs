@@ -28,6 +28,17 @@ public class BossController : MonoBehaviour
             Shoot();
             nextFireTime = Time.time + 1f / fireRate;
         }
+        Vector3 objectPosition = transform.position;
+
+        // L?y gi?i h?n bên trái c?a màn hình trong không gian th? gi?i
+        float leftScreenLimit = Camera.main.ScreenToWorldPoint(Vector3.zero).x;
+
+        // Ki?m tra xem v?t th? có v??t qua gi?i h?n bên trái màn hình hay không
+        if (objectPosition.x < leftScreenLimit)
+        {
+            // N?u v?t th? ?i ra kh?i màn hình bên trái, h?y nó
+            gameObject.SetActive(false);
+        }
     }
 
     private void Shoot()
