@@ -21,7 +21,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float blinkDuration = 1.5f; // Duration of blinking in seconds
     [SerializeField] float blinkInterval = 0.3f; // Interval between blink toggles
     private SpriteRenderer rend;
-    private bool isBlinking = false;
 
     [SerializeField] Joystick joystick;
 
@@ -135,7 +134,7 @@ public class PlayerScript : MonoBehaviour
     IEnumerator Blink()
     {
         // Store the initial visibility state of the object
-        bool initialState = rend.enabled;
+        bool initialState = rend.enabled; // true
         // Calculate the number of blink toggles based on duration and interval
         int toggleCount = Mathf.RoundToInt(blinkDuration / blinkInterval);
         for (int i = 0; i < toggleCount; i++)

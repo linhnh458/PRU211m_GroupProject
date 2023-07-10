@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6901051152163870220
 Transform:
   m_ObjectHideFlags: 0
@@ -137,6 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 9
-  bulletLifetime: 3
-  hitSoundSource: {fileID: 7407837040327941083, guid: 6de96b175338c934997a2e2581cc1958, type: 3}
   hitSoundClip: {fileID: 8300000, guid: cad20486f008b8f41a6797c3a550b743, type: 3}

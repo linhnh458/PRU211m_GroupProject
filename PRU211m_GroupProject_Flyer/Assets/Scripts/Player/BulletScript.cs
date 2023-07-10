@@ -36,7 +36,6 @@ public class BulletScript : MonoBehaviour
             scoreManager.AddScore(1);
             // explostion effect
             GameObject ps = ParticleSystemPool.instance.GetPooledParticleSystem();
-            Debug.Log(ps);
             ps.transform.position = transform.position;
             ps.transform.rotation = Quaternion.identity;
             ParticleSystemPool.instance.EnableObject(ps);

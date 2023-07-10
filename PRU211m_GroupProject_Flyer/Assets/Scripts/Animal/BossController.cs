@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+    private SpriteRenderer bossRenderer;
+
     [SerializeField] GameObject bulletPrefab;  // Prefab c?a viên ??n
     [SerializeField] string playerTag = "Player";  // Tag c?a ??i t??ng ng??i ch?i
     [SerializeField] float bulletSpeed = 5f;  // T?c ?? ??n
 
-    private float fireRate = 1f;  
+    [SerializeField] private float fireRate = 1.5f;  
     private float nextFireTime = 0f;  // Th?i ?i?m b?n ??n ti?p theo
     private Transform player;  // Transform c?a ng??i ch?i
     [SerializeField] float bulletLifetime = 4f;
@@ -19,6 +21,7 @@ public class BossController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag(playerTag).transform;
         scoreManager = GameObject.FindGameObjectWithTag("Logic").GetComponent<ScoreScript>();
+        bossRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -39,6 +42,7 @@ public class BossController : MonoBehaviour
             // N?u v?t th? ?i ra kh?i màn hình bên trái, h?y nó
             gameObject.SetActive(false);
         }
+        FlipBoss();
     }
 
     private void Shoot()
@@ -59,6 +63,21 @@ public class BossController : MonoBehaviour
         {
             gameObject.SetActive(false);
             scoreManager.AddScore(3);
+        }
+    }
+
+    // check player position to flip the boss prefab
+    void FlipBoss()
+    {
+        float playerPositionX = player.position.x;
+
+        if (gameObject.transform.position.x > playerPositionX)
+        {
+            bossRenderer.flipX = true; // boss is on the right of player
+        }
+        else
+        {
+            bossRenderer.flipX = false; // boss is on the left
         }
     }
 }
