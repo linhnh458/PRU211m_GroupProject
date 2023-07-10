@@ -1,0 +1,5 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PRU211m_GroupProject_Flyer/Assets/Scripts/Pipe/PipeMove.cs
