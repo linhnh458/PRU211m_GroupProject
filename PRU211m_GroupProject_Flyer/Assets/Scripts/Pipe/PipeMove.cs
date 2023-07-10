@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PipeMove : MonoBehaviour
 {
-    public float moveSpeed = 0.1f;
+    public float moveSpeed = 0.05f;
     float deadZone = -20;
     private bool isPaused = false;
     private Vector3 velocity;
+    float speedUpRate = 30f;
+    float timer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,15 @@ public class PipeMove : MonoBehaviour
         if (transform.position.x < deadZone)
         {
             Destroy(gameObject);
+        }
+        if (timer < speedUpRate)
+        {
+            timer = timer + Time.deltaTime;
+        }
+        else
+        {
+            moveSpeed = moveSpeed + moveSpeed * 0.2f;
+            timer = 0;
         }
     }
 
