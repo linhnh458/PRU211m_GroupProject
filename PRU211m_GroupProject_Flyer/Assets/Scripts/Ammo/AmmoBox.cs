@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AmmoBox : MonoBehaviour
 {
-    public int ammoAmount = 5; // Số lượng đạn cung cấp cho Player khi chạm vào hộp đạn
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

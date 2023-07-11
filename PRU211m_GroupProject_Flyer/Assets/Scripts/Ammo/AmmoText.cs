@@ -19,6 +19,7 @@ public class AmmoText : MonoBehaviour
     {
         if (ammoAmount > 15)
         {
+            ammoAmount = 15;
             text.text = "15/15";
         }
         else if (ammoAmount > 0)

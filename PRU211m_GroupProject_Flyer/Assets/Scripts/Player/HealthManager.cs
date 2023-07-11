@@ -10,6 +10,12 @@ public class HealthManager : MonoBehaviour
     [SerializeField] Image[] hearts;
     public Sprite fullHeart;
 
+    public static int CurrentHeart { get;set; }
+
+    private void Start()
+    {
+        CurrentHeart = currentHeart;
+    }
     private void Update()
     {
         // check whether health is greater than maximum allowed 
@@ -39,6 +45,11 @@ public class HealthManager : MonoBehaviour
         if (currentHeart <= 0)
         {
             currentHeart = 0;
+            PlayerScript.isGameOver = true;
+        }
+        else
+        {
+            PlayerScript.isGameOver = false;
         }
     }
 

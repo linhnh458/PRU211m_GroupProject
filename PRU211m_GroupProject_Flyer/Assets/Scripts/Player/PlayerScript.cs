@@ -23,6 +23,8 @@ public class PlayerScript : MonoBehaviour
     private SpriteRenderer rend;
 
     [SerializeField] Joystick joystick;
+    public static bool isGameOver = false;
+    [SerializeField] GameObject gameOverMenu;
 
     public static object Instance { get; internal set; }
 
@@ -54,6 +56,10 @@ public class PlayerScript : MonoBehaviour
         {
             fireTimer -= Time.deltaTime;
         }
+        if (isGameOver)
+        {
+            gameOverMenu.SetActive(true);
+        }
     }
 
     public void Shoot()
@@ -71,17 +77,6 @@ public class PlayerScript : MonoBehaviour
                 BulletPooling.instance.DisableObject(bullet);
             }
         }
-
-
-/*        // shoot bullet right at the position of firing point
-        GameObject bullet = BulletPooling.instance.GetPooledObject();
-        if (bullet != null)
-        {
-            bullet.transform.position = firingPoint.position;
-            bullet.transform.rotation = firingPoint.rotation;
-            bullet.SetActive(true);
-            BulletPooling.instance.DisableObject(bullet);
-        }*/
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -148,12 +143,5 @@ public class PlayerScript : MonoBehaviour
         // Restore the initial visibility state after blinking is done
         rend.enabled = initialState;
     }
-
-/*    public void AddAmmo(int ammoAmount)
-    {
-        currentAmmo += ammoAmount;
-        if (currentAmmo > maxAmmo)
-            currentAmmo = maxAmmo;
-    }*/
 
 }
