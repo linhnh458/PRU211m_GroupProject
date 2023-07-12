@@ -42,7 +42,7 @@ public class HealthManager : MonoBehaviour
     {
         currentHeart -= damageAmount;
 
-        if (currentHeart <= 0)
+        if (currentHeart < 0)
         {
             currentHeart = 0;
             PlayerScript.isGameOver = true;
@@ -51,6 +51,11 @@ public class HealthManager : MonoBehaviour
         {
             PlayerScript.isGameOver = false;
         }
+    }
+
+    public void Die()
+    {
+        currentHeart = 0;
     }
 
     public void HealHealth(int heal)

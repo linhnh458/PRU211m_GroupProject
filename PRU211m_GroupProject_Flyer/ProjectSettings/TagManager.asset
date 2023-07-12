@@ -13,6 +13,9 @@ TagManager:
   - Pipe
   - Poison
   - Logic
+  - Ammo
+  - DeathEffect
+  - HitEffect
   layers:
   - Default
   - TransparentFX

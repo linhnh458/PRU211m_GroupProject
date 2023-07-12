@@ -77,14 +77,33 @@ public class PlayerScript : MonoBehaviour
                 BulletPooling.instance.DisableObject(bullet);
             }
         }
+<<<<<<< Updated upstream
+=======
+
+
+        /*        // shoot bullet right at the position of firing point
+                GameObject bullet = BulletPooling.instance.GetPooledObject();
+                if (bullet != null)
+                {
+                    bullet.transform.position = firingPoint.position;
+                    bullet.transform.rotation = firingPoint.rotation;
+                    bullet.SetActive(true);
+                    BulletPooling.instance.DisableObject(bullet);
+                }*/
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Pipe"))
         {
-            GetComponent<HealthManager>().TakeDamage(1); // lose a heart
+            GetComponent<HealthManager>().Die();
             AudioPooling.audioInstance.PlaySound(deadSoundClip);
+            // spawn exlposion 
+            SpawnExplosionEffect();
         }
         else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
@@ -93,17 +112,16 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // kill animal
             // spawn exlposion 
-            GameObject ps = ParticleSystemPool.instance.GetPooledParticleSystem();
-            ps.transform.position = transform.position;
-            ps.transform.rotation = Quaternion.identity;
-            ParticleSystemPool.instance.EnableObject(ps);
+            SpawnExplosionEffect();
         }
         else if (collision.gameObject.CompareTag("Boss"))
         {
-            GetComponent<HealthManager>().TakeDamage(1); // lose a heart
+            GetComponent<HealthManager>().Die(); 
             AudioPooling.audioInstance.PlaySound(deadSoundClip);
+            // spawn exlposion 
+            SpawnExplosionEffect();
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -119,29 +137,47 @@ public class PlayerScript : MonoBehaviour
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // disable boss bullet
-            GameObject ps = ParticleSystemPool.instance.GetPooledParticleSystem();
-            ps.transform.position = transform.position;
-            ps.transform.rotation = Quaternion.identity;
-            ParticleSystemPool.instance.EnableObject(ps);
+            SpawnExplosionEffect();
         }
     }
 
     IEnumerator Blink()
     {
-        // Store the initial visibility state of the object
-        bool initialState = rend.enabled; // true
         // Calculate the number of blink toggles based on duration and interval
         int toggleCount = Mathf.RoundToInt(blinkDuration / blinkInterval);
         for (int i = 0; i < toggleCount; i++)
         {
-            // Toggle the visibility state of the object
+            // Toggle the visibility state
             rend.enabled = !rend.enabled;
-
-            // Wait for the specified interval
+            // Wait for x seconds then toggle again
             yield return new WaitForSeconds(blinkInterval);
         }
         // Restore the initial visibility state after blinking is done
-        rend.enabled = initialState;
+        rend.enabled = true;
     }
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+    /*  public void AddAmmo(int ammoAmount)
+        {
+            currentAmmo += ammoAmount;
+            if (currentAmmo > maxAmmo)
+                currentAmmo = maxAmmo;
+        }*/
+
+    void SpawnExplosionEffect()
+    {
+        GameObject effect = ParticleSystemPool.instance.GetPooledParticleSystem();
+        //explosion.tag = "";
+        effect.transform.position = transform.position;
+        effect.transform.rotation = Quaternion.identity;
+        ParticleSystemPool.instance.EnableObject(effect);
+    }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 }
