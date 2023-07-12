@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PipeMove : MonoBehaviour
 {
-    public float moveSpeed = 0.05f;
+    public float moveSpeed = 0.01f;
     float deadZone = -20;
     private bool isPaused = false;
     private Vector3 velocity;
