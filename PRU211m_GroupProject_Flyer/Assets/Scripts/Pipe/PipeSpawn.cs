@@ -5,6 +5,7 @@ using UnityEngine;
 public class PipeSpawn : MonoBehaviour
 {
     [SerializeField] GameObject TotalPipe;
+    [SerializeField] GameObject Fence;
     [SerializeField] GameObject frog;
     [SerializeField] GameObject spider;
     [SerializeField] GameObject boss;
@@ -17,6 +18,7 @@ public class PipeSpawn : MonoBehaviour
 
     private float spawnFrogThreshold = 0.3f;
     private float spawnSpiderThreshold = 0.3f;
+    private float spawnFenceThreshold = 0.3f;
 
     int count = 0;
 
@@ -49,7 +51,16 @@ public class PipeSpawn : MonoBehaviour
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
-        Instantiate(TotalPipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        float randomValueFence = Random.value;
+
+        if (randomValueFence <= spawnFenceThreshold)
+        {
+            Instantiate(Fence, new Vector3(transform.position.x, -2, 0), transform.rotation);
+        }
+        else
+        {
+            Instantiate(TotalPipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        }
 
     }
 

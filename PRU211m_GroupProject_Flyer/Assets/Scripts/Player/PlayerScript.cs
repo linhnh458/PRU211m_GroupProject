@@ -93,6 +93,13 @@ public class PlayerScript : MonoBehaviour
             // spawn exlposion 
             SpawnExplosionEffect();
         }
+        else if (collision.gameObject.CompareTag("PartOfFence"))
+        {
+            GetComponent<HealthManager>().Die();
+            AudioPooling.audioInstance.PlaySound(deadSoundClip);
+            // spawn exlposion 
+            SpawnExplosionEffect();
+        }
         else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart

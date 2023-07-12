@@ -45,6 +45,12 @@ public class BulletScript : MonoBehaviour
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
         }
+        if (collision.gameObject.CompareTag("PartOfFence"))
+        {
+            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
+        }
     }
 
 }
