@@ -16,14 +16,11 @@ public class BulletPooling : MonoBehaviour
         {
             instance = this;
         }
-    }
-    private void Start()
-    {
         // create a pool of inactive bullet objects
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(bulletPrefab);
-            obj.SetActive(false); 
+            obj.SetActive(false);
             pooledObjects.Add(obj);
         }
     }

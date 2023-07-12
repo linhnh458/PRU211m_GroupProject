@@ -23,34 +23,40 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Pipe"))
+        if (collision.gameObject.CompareTag("Pipe") || collision.gameObject.CompareTag("Boss"))
         {
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
         }
-        if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
+        else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
             scoreManager.AddScore(1);
             // explostion effect
-            GameObject ps = ParticleSystemPool.instance.GetPooledParticleSystem();
-            ps.transform.position = transform.position;
-            ps.transform.rotation = Quaternion.identity;
-            ParticleSystemPool.instance.EnableObject(ps);
-        }
-        if (collision.gameObject.CompareTag("Boss"))
-        {
-            AudioPooling.audioInstance.PlaySound(hitSoundClip);
-            gameObject.SetActive(false);
+            SpawnExplosionEffect();
         }
         if (collision.gameObject.CompareTag("PartOfFence"))
         {
             AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
+            SpawnExplosionEffect();
         }
+        //if (collision.gameObject.CompareTag("Boss"))
+        //{
+        //    AudioPooling.audioInstance.PlaySound(hitSoundClip);
+        //    gameObject.SetActive(false);
+        //}
     }
 
+
+    void SpawnExplosionEffect()
+    {
+        GameObject effect = ParticleSystemPool.instance.GetPooledParticleSystem();
+        effect.transform.position = transform.position;
+        effect.transform.rotation = Quaternion.identity;
+        ParticleSystemPool.instance.EnableObject(effect);
+    }
 }

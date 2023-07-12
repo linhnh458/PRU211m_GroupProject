@@ -27,7 +27,7 @@ public class ParticleSystemPool : MonoBehaviour
     {
         if (objectPool.Count == 0)
         {
-            Debug.LogWarning("Object pool is empty! Consider increasing the pool size.");
+            Debug.LogWarning("Object pool ps is empty");
             return null;
         }
 

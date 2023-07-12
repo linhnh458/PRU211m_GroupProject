@@ -7,21 +7,34 @@ public class ScoreScript : MonoBehaviour
 {
     public static int score;
     private int displayScore;
-    [SerializeField] Text scoreText;
-    [SerializeField] Text scoreTextGO;
+    [SerializeField] Text scoreTextDisplay;
+    //[SerializeField] Text scoreTextGO;
+
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("Score"))
+        {
+            score = PlayerPrefs.GetInt("Score");
+        }
+        else
+        {
+            score = 0;
+        }
+        displayScore = 0;
+    }
 
     private void Update()
     {
         if (score != displayScore)
         {
             displayScore = score;
-            scoreText.text = "Score: " + displayScore.ToString();
-            scoreTextGO.text = "Score: " + displayScore.ToString();
+            scoreTextDisplay.text = "Score: " + displayScore.ToString();
+            // scoreTextGO.text = "Score: " + displayScore.ToString();
         }
         else
         {
-            scoreText.text = "Score: 0";
-            scoreTextGO.text = "Score: 0";
+            scoreTextDisplay.text = "Score: 0";
+            // scoreTextGO.text = "Score: 0";
         }
     }
     public void AddScore(int scoreToAdd)

@@ -25,12 +25,12 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] Joystick joystick;
     public static bool isGameOver = false;
-    [SerializeField] GameObject gameOverMenu;
+    //[SerializeField] GameObject gameOverMenu;
     [SerializeField] Button pauseButton;
     public static object Instance { get; internal set; }
     private void Awake()
     {
-        gameOverMenu.SetActive(false);
+        //gameOverMenu.SetActive(false);
     }
     void Start()
     {
@@ -62,7 +62,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (isGameOver)
         {
-            gameOverMenu.SetActive(true);
+            //gameOverMenu.SetActive(true);
             pauseButton.gameObject.SetActive(false);
         }
     }
@@ -86,16 +86,16 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Pipe"))
+        if (collision.gameObject.CompareTag("Pipe") || collision.gameObject.CompareTag("Boss"))
         {
-            GetComponent<HealthManager>().Die();
+            //GetComponent<HealthManager>().Die();
             AudioPooling.audioInstance.PlaySound(deadSoundClip);
             // spawn exlposion 
             SpawnExplosionEffect();
         }
         else if (collision.gameObject.CompareTag("PartOfFence"))
         {
-            GetComponent<HealthManager>().Die();
+            GetComponent<HealthManager>().TakeDamage(1);
             AudioPooling.audioInstance.PlaySound(deadSoundClip);
             // spawn exlposion 
             SpawnExplosionEffect();
@@ -109,14 +109,6 @@ public class PlayerScript : MonoBehaviour
             // spawn exlposion 
             SpawnExplosionEffect();
         }
-        else if (collision.gameObject.CompareTag("Boss"))
-        {
-            GetComponent<HealthManager>().Die(); 
-            AudioPooling.audioInstance.PlaySound(deadSoundClip);
-            // spawn exlposion 
-            SpawnExplosionEffect();
-        }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -154,7 +146,6 @@ public class PlayerScript : MonoBehaviour
     void SpawnExplosionEffect()
     {
         GameObject effect = ParticleSystemPool.instance.GetPooledParticleSystem();
-        //explosion.tag = "";
         effect.transform.position = transform.position;
         effect.transform.rotation = Quaternion.identity;
         ParticleSystemPool.instance.EnableObject(effect);
