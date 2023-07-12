@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    Rigidbody2D rigidbody;
+    Rigidbody2D rigidbody2d;
     [SerializeField] float speed = 10f;
 
     // sniper to shoot bullets
@@ -25,12 +26,15 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] Joystick joystick;
     public static bool isGameOver = false;
     [SerializeField] GameObject gameOverMenu;
-
+    [SerializeField] Button pauseButton;
     public static object Instance { get; internal set; }
-
+    private void Awake()
+    {
+        gameOverMenu.SetActive(false);
+    }
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
     }
 
@@ -46,7 +50,7 @@ public class PlayerScript : MonoBehaviour
         {
             movement = 0f;
         }
-        rigidbody.velocity = new Vector2(0, movement) * speed;
+        rigidbody2d.velocity = new Vector2(0, movement) * speed;
         if (Input.GetKey(KeyCode.Space) && fireTimer <= 0)
         {
             Shoot();
@@ -59,6 +63,7 @@ public class PlayerScript : MonoBehaviour
         if (isGameOver)
         {
             gameOverMenu.SetActive(true);
+            pauseButton.gameObject.SetActive(false);
         }
     }
 
@@ -77,23 +82,6 @@ public class PlayerScript : MonoBehaviour
                 BulletPooling.instance.DisableObject(bullet);
             }
         }
-<<<<<<< Updated upstream
-=======
-
-
-        /*        // shoot bullet right at the position of firing point
-                GameObject bullet = BulletPooling.instance.GetPooledObject();
-                if (bullet != null)
-                {
-                    bullet.transform.position = firingPoint.position;
-                    bullet.transform.rotation = firingPoint.rotation;
-                    bullet.SetActive(true);
-                    BulletPooling.instance.DisableObject(bullet);
-                }*/
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -156,18 +144,6 @@ public class PlayerScript : MonoBehaviour
         rend.enabled = true;
     }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-    /*  public void AddAmmo(int ammoAmount)
-        {
-            currentAmmo += ammoAmount;
-            if (currentAmmo > maxAmmo)
-                currentAmmo = maxAmmo;
-        }*/
-
     void SpawnExplosionEffect()
     {
         GameObject effect = ParticleSystemPool.instance.GetPooledParticleSystem();
@@ -176,8 +152,4 @@ public class PlayerScript : MonoBehaviour
         effect.transform.rotation = Quaternion.identity;
         ParticleSystemPool.instance.EnableObject(effect);
     }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }

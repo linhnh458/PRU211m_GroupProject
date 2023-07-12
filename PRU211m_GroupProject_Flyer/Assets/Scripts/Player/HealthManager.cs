@@ -9,13 +9,8 @@ public class HealthManager : MonoBehaviour
     [SerializeField] int maxHeart; // maximum hearts can have
     [SerializeField] Image[] hearts;
     public Sprite fullHeart;
+    public Button pauseButton;
 
-    public static int CurrentHeart { get;set; }
-
-    private void Start()
-    {
-        CurrentHeart = currentHeart;
-    }
     private void Update()
     {
         // check whether health is greater than maximum allowed 
@@ -41,11 +36,16 @@ public class HealthManager : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHeart -= damageAmount;
+        if (currentHeart > 0)
+        {
+            PlayerScript.isGameOver = false;
+        }
 
-        if (currentHeart < 0)
+        if (currentHeart <= 0)
         {
             currentHeart = 0;
             PlayerScript.isGameOver = true;
+            pauseButton.gameObject.SetActive(false);
         }
         else
         {
@@ -56,6 +56,8 @@ public class HealthManager : MonoBehaviour
     public void Die()
     {
         currentHeart = 0;
+        PlayerScript.isGameOver = true;
+        pauseButton.gameObject.SetActive(false);
     }
 
     public void HealHealth(int heal)

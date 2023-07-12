@@ -10,6 +10,17 @@ public class MenuFunction : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     public void StartNewGame()
     {
+        Time.timeScale = 1f;
+        if (pipes != null)
+        {
+            foreach (var pipe in pipes)
+            {
+                pipe.Resume();
+                pauseMenu.SetActive(false);
+            }
+        }
+        AmmoText.ammoAmount = 0;
+        PlayerScript.isGameOver = false;
         SceneManager.LoadScene(1);
     }
 

@@ -5,20 +5,20 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 10f;
-    Rigidbody2D rigidbody;
+    Rigidbody2D rigidbody2d;
     // audio
     [SerializeField] AudioClip hitSoundClip;
 
     ScoreScript scoreManager;
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
         scoreManager = GameObject.FindGameObjectWithTag("Logic").GetComponent<ScoreScript>();
     }
    
     void Update()
     {
-        rigidbody.velocity = transform.up * bulletSpeed;
+        rigidbody2d.velocity = transform.up * bulletSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
