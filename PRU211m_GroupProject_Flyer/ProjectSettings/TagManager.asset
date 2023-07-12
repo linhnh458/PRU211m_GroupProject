@@ -17,7 +17,6 @@ TagManager:
   - DeathEffect
   - HitEffect
   - PartOfFence
-  - ResumeButton
   layers:
   - Default
   - TransparentFX

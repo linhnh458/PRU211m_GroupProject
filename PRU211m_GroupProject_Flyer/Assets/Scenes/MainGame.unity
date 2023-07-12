@@ -255,7 +255,8 @@ MonoBehaviour:
   blinkDuration: 1.5
   blinkInterval: 0.3
   joystick: {fileID: 220147525}
-  pauseButton: {fileID: 975429592}
+  gameOverMenu: {fileID: 0}
+  pauseButton: {fileID: 0}
 --- !u!61 &186462735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -878,7 +879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e562bef0d247541ad738d759529a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTextDisplay: {fileID: 739537184}
+  scoreText: {fileID: 739537184}
+  scoreTextGO: {fileID: 0}
 --- !u!4 &373545566
 Transform:
   m_ObjectHideFlags: 0
@@ -1228,13 +1230,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 123 '
+  m_Text: 'Score: '
 --- !u!222 &739537185
 CanvasRenderer:
   m_ObjectHideFlags: 0
