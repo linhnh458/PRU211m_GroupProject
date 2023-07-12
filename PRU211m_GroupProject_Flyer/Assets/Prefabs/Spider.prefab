@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae5788a5e65c814e94455d2376706e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Heal: {fileID: 8316474835940650963, guid: a571814b72e88df449c83bd8d48e105e, type: 3}
+  Heal: {fileID: 8250603043693011377, guid: 504cbd34c2722ab4593b41e6a2a96d7d, type: 3}
   itemHealThreshold: 0.5
 --- !u!61 &-4237614456828242991
 BoxCollider2D:
