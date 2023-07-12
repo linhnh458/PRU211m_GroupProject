@@ -1705,6 +1705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalPipe: {fileID: 2330414366461658464, guid: d29a0cffafd481f41a4de5f0b82c458b, type: 3}
+  Fence: {fileID: 2923459947255455412, guid: 1b5c24ad255c3ad4dafdcc8cbc0ea366, type: 3}
   frog: {fileID: 6836376788600990905, guid: 0252ea095004ce44ca1ae0b4e87c4c68, type: 3}
   spider: {fileID: 1332883511198170479, guid: b602d78136b4b0b41a583712aafbda7b, type: 3}
   boss: {fileID: 7417522170934370598, guid: 8b258d00dce567444934a038203ced23, type: 3}

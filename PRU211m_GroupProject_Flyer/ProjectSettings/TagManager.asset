@@ -16,6 +16,7 @@ TagManager:
   - Ammo
   - DeathEffect
   - HitEffect
+  - PartOfFence
   layers:
   - Default
   - TransparentFX
