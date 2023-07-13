@@ -25,17 +25,18 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] Joystick joystick;
     public static bool isGameOver = false;
-    //[SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject gameOverMenu;
     [SerializeField] Button pauseButton;
     public static object Instance { get; internal set; }
     private void Awake()
     {
-        //gameOverMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
     }
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+        AmmoText.ammoAmount = 5;
     }
 
     // Update is called once per frame
@@ -62,7 +63,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (isGameOver)
         {
-            //gameOverMenu.SetActive(true);
+            gameOverMenu.SetActive(true);
             pauseButton.gameObject.SetActive(false);
         }
     }

@@ -8,7 +8,7 @@ public class ScoreScript : MonoBehaviour
     public static int score;
     private int displayScore;
     [SerializeField] Text scoreTextDisplay;
-    //[SerializeField] Text scoreTextGO;
+    [SerializeField] Text scoreTextGO;
 
     void Start()
     {
@@ -29,12 +29,12 @@ public class ScoreScript : MonoBehaviour
         {
             displayScore = score;
             scoreTextDisplay.text = "Score: " + displayScore.ToString();
-            // scoreTextGO.text = "Score: " + displayScore.ToString();
+            scoreTextGO.text = "Score: " + displayScore.ToString();
         }
         else
         {
             scoreTextDisplay.text = "Score: 0";
-            // scoreTextGO.text = "Score: 0";
+            scoreTextGO.text = "Score: 0";
         }
     }
     public void AddScore(int scoreToAdd)

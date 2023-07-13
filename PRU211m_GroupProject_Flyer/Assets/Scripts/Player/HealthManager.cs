@@ -44,8 +44,8 @@ public class HealthManager : MonoBehaviour
         if (currentHeart <= 0)
         {
             currentHeart = 0;
-            //PlayerScript.isGameOver = true;
-            //pauseButton.gameObject.SetActive(false);
+            PlayerScript.isGameOver = true;
+            pauseButton.gameObject.SetActive(false);
         }
         else
         {
@@ -56,8 +56,8 @@ public class HealthManager : MonoBehaviour
     public void Die()
     {
         currentHeart = 0;
-        //PlayerScript.isGameOver = true;
-        //pauseButton.gameObject.SetActive(false);
+        PlayerScript.isGameOver = true;
+        pauseButton.gameObject.SetActive(false);
     }
 
     public void HealHealth(int heal)

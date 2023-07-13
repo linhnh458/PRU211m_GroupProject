@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AmmoText : MonoBehaviour
 {
     Text text;
-    public static int ammoAmount = 0;
+    public static int ammoAmount = 5;
 
     // Use this for initialization
     void Start()
