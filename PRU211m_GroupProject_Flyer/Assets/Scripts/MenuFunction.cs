@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
+using UnityEngine.UI;
+using UnityEngine.Audio;
 public class MenuFunction : MonoBehaviour
 {
     [SerializeField] bool isPaused = false;
     private PipeMove[] pipes;
     [SerializeField] GameObject pauseMenu;
+
+
+    public Slider volumeSlider;
+    public AudioMixer audioMixer;
+    public void SetVolume()
+    {
+        audioMixer.SetFloat("volume", volumeSlider.value);
+    }
+
     public void StartNewGame()
     {
         Time.timeScale = 1f;

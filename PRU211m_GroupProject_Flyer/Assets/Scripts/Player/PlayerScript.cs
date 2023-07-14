@@ -61,7 +61,7 @@ public class PlayerScript : MonoBehaviour
         {
             fireTimer -= Time.deltaTime;
         }
-        if (isGameOver)
+        if (isGameOver || gameObject.transform.position.x < -12)
         {
             gameOverMenu.SetActive(true);
             pauseButton.gameObject.SetActive(false);
