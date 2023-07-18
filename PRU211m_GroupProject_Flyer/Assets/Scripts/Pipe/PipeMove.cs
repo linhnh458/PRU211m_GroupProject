@@ -31,7 +31,7 @@ public class PipeMove : MonoBehaviour
         transform.position += Vector3.left * moveSpeed;
         if (transform.position.x < deadZone)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         if (timer < speedUpRate)
         {

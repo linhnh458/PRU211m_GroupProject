@@ -47,7 +47,14 @@ public class PipeSpawn : MonoBehaviour
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
-        Instantiate(TotalPipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        GameObject spider = ObjectPoolingForPipe.instance.GetPooledObject();
+        if (spider != null)
+        {
+            spider.transform.position = new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0);
+            spider.transform.rotation = transform.rotation;
+            spider.SetActive(true);
+        }
+        //Instantiate(TotalPipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
 
     }
     void spawnMonster()
@@ -68,7 +75,14 @@ public class PipeSpawn : MonoBehaviour
 
         if (randomValueSpider <= spawnSpiderThreshold)
         {
-            Instantiate(spider, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 1 / 2), 5, 0), transform.rotation);
+            GameObject spider = ObjectPoolingForSpider.instance.GetPooledObject();
+            if (spider != null)
+            {
+                spider.transform.position = new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 1 / 2), -5, 0);
+                spider.transform.rotation = transform.rotation;
+                spider.SetActive(true);
+            }
+            //Instantiate(spider, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 1 / 2), 5, 0), transform.rotation);
             count++;
             spawnSpiderThreshold = spawnSpiderThreshold + 0.05f;
             if (spawnSpiderThreshold >= 0.7f)
@@ -84,7 +98,14 @@ public class PipeSpawn : MonoBehaviour
 
         if (randomValueFrog <= spawnFrogThreshold)
         {
-            Instantiate(frog, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 1 / 2), -5, 0), transform.rotation);
+            GameObject frog = ObjectPoolingForMonster.instance.GetPooledObject();
+            if (frog != null)
+            {
+                frog.transform.position = new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 1 / 2), -5, 0);
+                frog.transform.rotation = transform.rotation;
+                frog.SetActive(true);
+            }
+            //Instantiate(frog, new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 1 / 2), -5, 0), transform.rotation);
             count++;
             spawnFrogThreshold = spawnFrogThreshold + 0.05f;
             if (spawnFrogThreshold >= 0.7f)
@@ -98,7 +119,14 @@ public class PipeSpawn : MonoBehaviour
     {
         if(count >= 10)
         {
-            Instantiate(boss, new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1 / 2), 0, 0), transform.rotation);
+            GameObject boss = ObjectPoolingForBoss.instance.GetPooledObject();
+            if (boss != null)
+            {
+                boss.transform.position = new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1 / 2), 0, 0);
+                boss.transform.rotation = transform.rotation;
+                boss.SetActive(true);
+            }
+            //Instantiate(boss, new Vector3(Random.Range(transform.position.x - 1, transform.position.x + 1 / 2), 0, 0), transform.rotation);
             count = 0;
         }
         
