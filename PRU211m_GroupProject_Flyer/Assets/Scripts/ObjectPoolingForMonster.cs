@@ -12,10 +12,6 @@ public class ObjectPoolingForMonster : MonoBehaviour
 
     [SerializeField]
     private GameObject Frog;
-    [SerializeField]
-    private GameObject Spider;
-    [SerializeField]
-    private GameObject Boss;
 
     private void Awake()
     {
@@ -33,17 +29,8 @@ public class ObjectPoolingForMonster : MonoBehaviour
             GameObject frog = Instantiate(Frog);
             frog.SetActive(false);
             pooledObjects.Add(frog);
-        }for (int i = 0; i < 5; i++)
-        {
-            GameObject spider = Instantiate(Spider);
-            spider.SetActive(false);
-            pooledObjects.Add(spider);
-        }for (int i = 0; i < 2; i++)
-        {
-            GameObject boss = Instantiate(Boss);
-            boss.SetActive(false);
-            pooledObjects.Add(boss);
         }
+        //StartCoroutine(PlaceObjectAtRandomPositionCoroutine());
     }
 
     public GameObject GetPooledObject()
@@ -57,4 +44,25 @@ public class ObjectPoolingForMonster : MonoBehaviour
         }
         return null;
     }
+    /*private IEnumerator PlaceObjectAtRandomPositionCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f); // Ch? 2 giây
+
+            GameObject obj = GetPooledObject();
+
+            if (obj != null)
+            {
+                // L?y ng?u nhiên v? trí trong kho?ng minPosition và maxPosition
+                float randomX = Random.Range(transform.position.x - 2, transform.position.x + 1);
+                float randomY = 5;
+                Vector2 randomPosition = new Vector2(randomX, randomY);
+
+                // ??t ??i t??ng vào v? trí ng?u nhiên và kích ho?t
+                obj.transform.position = randomPosition;
+                obj.SetActive(true);
+            }
+        }
+    }*/
 }
