@@ -90,9 +90,6 @@ public class PipeSpawn : MonoBehaviour
             ammo.transform.rotation = transform.rotation;
             ammo.SetActive(true);
         }
-        //Instantiate(TotalPipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
-
-
     }
     void spawnMonster()
     {

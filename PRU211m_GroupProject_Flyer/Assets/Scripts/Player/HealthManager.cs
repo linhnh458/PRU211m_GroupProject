@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    [SerializeField] int currentHeart; // current number of hearts player has
+    public static int currentHeart = 2; // when game starts, player has 2 hearts
     [SerializeField] int maxHeart; // maximum hearts can have
     [SerializeField] Image[] hearts;
     public Sprite fullHeart;

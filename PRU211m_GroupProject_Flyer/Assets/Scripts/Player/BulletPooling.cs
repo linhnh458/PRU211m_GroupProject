@@ -6,7 +6,7 @@ public class BulletPooling : MonoBehaviour
 {
     public static BulletPooling instance;
 
-    public static List<GameObject> pooledObjects = new List<GameObject>();
+    public List<GameObject> pooledObjects = new List<GameObject>();
     [SerializeField] int poolSize = 7;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float disableTime = 3f; // disable bullet after x seconds

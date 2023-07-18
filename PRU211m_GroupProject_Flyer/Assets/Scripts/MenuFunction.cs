@@ -10,9 +10,25 @@ public class MenuFunction : MonoBehaviour
     private PipeMove[] pipes;
     [SerializeField] GameObject pauseMenu;
 
-
     public Slider volumeSlider;
     public AudioMixer audioMixer;
+
+    private Button resumeButton;
+
+    private void Awake()
+    {
+        // get the resume button, disable when game first starts
+        resumeButton = GameObject.FindGameObjectWithTag("ResumeButton").GetComponent<Button>();
+        resumeButton.enabled = false;
+    }
+    void Start()
+    {
+        // enable resume button only when playerrefs data is available
+        if (PlayerPrefs.HasKey("Score"))
+        {
+            resumeButton.enabled = true;
+        }
+    }
     public void SetVolume()
     {
         audioMixer.SetFloat("volume", volumeSlider.value);
@@ -39,6 +55,7 @@ public class MenuFunction : MonoBehaviour
     void ResetGame()
     {
         PlayerPrefs.DeleteKey("Score");
+        HealthManager.currentHeart = 2; // reset initial hearts
     }
 
     public void ExitMain()
@@ -84,11 +101,20 @@ public class MenuFunction : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         PlayerPrefs.SetInt("Score", ScoreScript.score);
-        //PlayerPrefs.SetFloat("PlayerPositionX", GunScript.playerPosition.x);
-        //PlayerPrefs.SetFloat("PlayerPositionY", GunScript.playerPosition.y);
-        //PlayerPrefs.SetFloat("PlayerPositionZ", GunScript.playerPosition.z);
+        PlayerPrefs.SetInt("Health", HealthManager.currentHeart);
+    }
 
-        Debug.Log("Saved score: " + ScoreScript.score);
+    public void ResumeButtonClicked()
+    {
+        Time.timeScale = 1f;
+        LoadDataFromPlayerPrefs();
+        SceneManager.LoadScene(1); // resume main game scene
+    }
+
+    // get data from playerpref
+    public void LoadDataFromPlayerPrefs()
+    {
+        ScoreScript.score = PlayerPrefs.GetInt("Score");
     }
 }
 

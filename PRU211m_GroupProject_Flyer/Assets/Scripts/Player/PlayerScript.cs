@@ -14,10 +14,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] Transform firingPoint;
     [SerializeField] GameObject bulletPrefab;
     float fireTimer; // when to shoot
-    // audio
-    [SerializeField] AudioSource hitSoundSource;
-    [SerializeField] AudioClip hitSoundClip;
-    [SerializeField] AudioClip deadSoundClip;
+    //// audio
+    //[SerializeField] AudioSource hitSoundSource;
+    //[SerializeField] AudioClip hitSoundClip;
+    //[SerializeField] AudioClip deadSoundClip;
     // blinking effect
     [SerializeField] float blinkDuration = 1.5f; // Duration of blinking in seconds
     [SerializeField] float blinkInterval = 0.3f; // Interval between blink toggles
@@ -89,26 +89,23 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pipe") || collision.gameObject.CompareTag("Boss"))
         {
-            //GetComponent<HealthManager>().Die();
-            AudioPooling.audioInstance.PlaySound(deadSoundClip);
-            // spawn exlposion 
+            GetComponent<HealthManager>().Die();
+            //AudioPooling.audioInstance.PlaySound(deadSoundClip);
             SpawnExplosionEffect();
         }
         else if (collision.gameObject.CompareTag("PartOfFence"))
         {
             GetComponent<HealthManager>().TakeDamage(1);
-            AudioPooling.audioInstance.PlaySound(deadSoundClip);
+            //AudioPooling.audioInstance.PlaySound(deadSoundClip);
             collision.gameObject.SetActive(false);
-            // spawn exlposion 
             SpawnExplosionEffect();
         }
         else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
-            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            //AudioPooling.audioInstance.PlaySound(hitSoundClip);
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // kill animal
-            // spawn exlposion 
             SpawnExplosionEffect();
         }
     }
@@ -123,7 +120,7 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.CompareTag("Poison"))
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
-            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            //AudioPooling.audioInstance.PlaySound(hitSoundClip);
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // disable boss bullet
             SpawnExplosionEffect();

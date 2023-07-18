@@ -31,11 +31,6 @@ public class ScoreScript : MonoBehaviour
             scoreTextDisplay.text = "Score: " + displayScore.ToString();
             scoreTextGO.text = "Score: " + displayScore.ToString();
         }
-        else
-        {
-            scoreTextDisplay.text = "Score: 0";
-            scoreTextGO.text = "Score: 0";
-        }
     }
     public void AddScore(int scoreToAdd)
     {

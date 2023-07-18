@@ -30,25 +30,19 @@ public class BulletScript : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
-            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            //AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
             scoreManager.AddScore(1);
-            // explostion effect
             SpawnExplosionEffect();
         }
         if (collision.gameObject.CompareTag("PartOfFence"))
         {
-            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            //AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
             SpawnExplosionEffect();
         }
-        //if (collision.gameObject.CompareTag("Boss"))
-        //{
-        //    AudioPooling.audioInstance.PlaySound(hitSoundClip);
-        //    gameObject.SetActive(false);
-        //}
     }
 
 
