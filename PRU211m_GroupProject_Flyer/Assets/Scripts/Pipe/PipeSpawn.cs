@@ -81,8 +81,15 @@ public class PipeSpawn : MonoBehaviour
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
-        Instantiate(ammo, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        //Instantiate(ammo, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
 
+        GameObject ammo = ObjectPoolingAmmo.instance.GetPooledObject();
+        if (ammo != null)
+        {
+            ammo.transform.position = new Vector3(transform.position.x, Random.Range(-5, 5), 0);
+            ammo.transform.rotation = transform.rotation;
+            ammo.SetActive(true);
+        }
         //Instantiate(TotalPipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
 
 

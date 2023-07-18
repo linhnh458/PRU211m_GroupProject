@@ -2384,6 +2384,7 @@ GameObject:
   - component: {fileID: 1279973129}
   - component: {fileID: 1279973128}
   - component: {fileID: 1279973127}
+  - component: {fileID: 1279973131}
   m_Layer: 0
   m_Name: PipeSpawner
   m_TagString: Untagged
@@ -2476,6 +2477,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pipe: {fileID: 2330414366461658464, guid: d29a0cffafd481f41a4de5f0b82c458b, type: 3}
+--- !u!114 &1279973131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279973124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac31cce6c5ab0fa44a2207eda5594d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ammo: {fileID: 5581213605051673690, guid: 039584ca4b8fbd64c85d409d4b2bdd73, type: 3}
 --- !u!1 &1345519685
 GameObject:
   m_ObjectHideFlags: 0
