@@ -249,14 +249,14 @@ MonoBehaviour:
   firingRate: 0.4
   firingPoint: {fileID: 1133341062}
   bulletPrefab: {fileID: 7567335560841193211, guid: 2e7025825559dd4429cabf8c9467948f, type: 3}
-  hitSoundSource: {fileID: 186462740}
-  hitSoundClip: {fileID: 8300000, guid: cad20486f008b8f41a6797c3a550b743, type: 3}
-  deadSoundClip: {fileID: 8300000, guid: f8053bc5786edd245a90a3e34c3e6342, type: 3}
+  hitSoundSource: {fileID: 0}
+  hitSoundClip: {fileID: 0}
+  deadSoundClip: {fileID: 0}
   blinkDuration: 1.5
   blinkInterval: 0.3
-  joystick: {fileID: 319838370}
-  gameOverMenu: {fileID: 984118581}
-  pauseButton: {fileID: 975429592}
+  joystick: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  pauseButton: {fileID: 0}
 --- !u!61 &186462735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -836,17 +836,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1337878906460846269, guid: b4d5d488b201941428dd060c8809aa7b, type: 3}
   m_PrefabInstance: {fileID: 369430719}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &319838370 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4234616055002059544, guid: b4d5d488b201941428dd060c8809aa7b, type: 3}
-  m_PrefabInstance: {fileID: 369430719}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &340973576
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,6 +2380,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1279973126}
   - component: {fileID: 1279973125}
+  - component: {fileID: 1279973130}
+  - component: {fileID: 1279973129}
+  - component: {fileID: 1279973128}
+  - component: {fileID: 1279973127}
   m_Layer: 0
   m_Name: PipeSpawner
   m_TagString: Untagged
@@ -2431,6 +2424,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279973127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279973124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41b7b4d7868b53448e077570402d940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Frog: {fileID: 6836376788600990905, guid: 0252ea095004ce44ca1ae0b4e87c4c68, type: 3}
+--- !u!114 &1279973128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279973124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1fd68ee6a068541b602c9612672bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spider: {fileID: 1332883511198170479, guid: b602d78136b4b0b41a583712aafbda7b, type: 3}
+--- !u!114 &1279973129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279973124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10e31da0e291742a527fae70c762fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 7417522170934370598, guid: 8b258d00dce567444934a038203ced23, type: 3}
+--- !u!114 &1279973130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279973124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40268a8bacdeb84ea09862ee768e95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pipe: {fileID: 2330414366461658464, guid: d29a0cffafd481f41a4de5f0b82c458b, type: 3}
 --- !u!1 &1345519685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,7 +2634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  pauseMenu: {fileID: 1755959272}
+  pauseMenu: {fileID: 0}
   volumeSlider: {fileID: 0}
   audioMixer: {fileID: 0}
 --- !u!1 &1481709893

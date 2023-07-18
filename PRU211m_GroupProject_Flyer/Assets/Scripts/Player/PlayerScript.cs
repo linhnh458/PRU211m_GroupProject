@@ -98,6 +98,7 @@ public class PlayerScript : MonoBehaviour
         {
             GetComponent<HealthManager>().TakeDamage(1);
             AudioPooling.audioInstance.PlaySound(deadSoundClip);
+            collision.gameObject.SetActive(false);
             // spawn exlposion 
             SpawnExplosionEffect();
         }

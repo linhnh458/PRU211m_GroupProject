@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    /*public static AudioManager instance;
 
-/*    public Sound[] sounds;*/
+    public Sound[] sounds;
 
     void Awake()
     {
@@ -42,6 +42,6 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, item => item.name == sound);
         s.source.Stop();
-    }
+    }*/
 
 }
