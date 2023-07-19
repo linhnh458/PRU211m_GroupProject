@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackGroundScroller : MonoBehaviour
 {
-    public float scrollSpeed;
+    /*public float scrollSpeed;
 
     private Renderer renderer;
     private Vector2 saveOffset;
@@ -20,5 +20,5 @@ public class BackGroundScroller : MonoBehaviour
         float x = Mathf.Repeat(Time.time * scrollSpeed, 1);
         Vector2 offset = new Vector2(x, 0);
         renderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
-    }
+    }*/
 }

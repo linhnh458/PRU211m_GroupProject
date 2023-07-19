@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9110363218950575290}
   - component: {fileID: -1058633042287966886}
   - component: {fileID: 4740623300154410635}
+  - component: {fileID: -1564558089036571740}
   m_Layer: 6
   m_Name: BossBullet
   m_TagString: Poison
@@ -133,3 +134,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1564558089036571740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088415747218070990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a82bfd9ba4a2394d99451e6b8bb0547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.05

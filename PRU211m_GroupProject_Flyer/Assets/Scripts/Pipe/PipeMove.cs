@@ -8,8 +8,8 @@ public class PipeMove : MonoBehaviour
     float deadZone = -20;
     private bool isPaused = false;
     private Vector3 velocity;
-    float speedUpRate = 30f;
-    float timer = 0.0f;
+    /*float speedUpRate = 30f;
+    float timer = 0.0f;*/
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,15 @@ public class PipeMove : MonoBehaviour
         {
             Move();
         }
+        /*if (timer < speedUpRate)
+        {
+            timer = timer + Time.deltaTime;
+        }
+        else
+        {
+            moveSpeed = moveSpeed + moveSpeed * 0.2f;
+            timer = 0;
+        }*/
     }
 
     void Move()
@@ -33,15 +42,7 @@ public class PipeMove : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        if (timer < speedUpRate)
-        {
-            timer = timer + Time.deltaTime;
-        }
-        else
-        {
-            moveSpeed = moveSpeed + moveSpeed * 0.2f;
-            timer = 0;
-        }
+        
     }
 
     public void Pause()
