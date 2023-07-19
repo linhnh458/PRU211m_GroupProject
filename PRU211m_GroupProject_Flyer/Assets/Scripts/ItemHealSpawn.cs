@@ -20,9 +20,7 @@ public class ItemHealSpawn : MonoBehaviour
             if(randomValueSpider <= itemHealThreshold)
             {
                 Instantiate(Heal, transform.position, transform.rotation);
-                //BulletPooling.instance.DisableObject(Heal);
             }
-            Destroy(gameObject);
         }
     }
 
