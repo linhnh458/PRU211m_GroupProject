@@ -320,20 +320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa56fe977600424ab626afad39eacb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds:
-  - name: Theme
-    clip: {fileID: 8300000, guid: 475f4837af487ce4a9e68bb227455e4c, type: 3}
-  sfxSounds:
-  - name: GameOver
-    clip: {fileID: 8300000, guid: aaa7ac81860329b4783da719115ac93c, type: 3}
-  - name: Die
-    clip: {fileID: 8300000, guid: f8053bc5786edd245a90a3e34c3e6342, type: 3}
-  - name: Hit
-    clip: {fileID: 8300000, guid: cad20486f008b8f41a6797c3a550b743, type: 3}
-  - name: Firing
-    clip: {fileID: 8300000, guid: d1d60bb1bd519b640920fae82eaf92c3, type: 3}
-  musicSource: {fileID: 961681008}
-  sfxSource: {fileID: 1347542478}
+  musicSounds: []
+  sfxSounds: []
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
 --- !u!4 &149996272
 Transform:
   m_ObjectHideFlags: 0
@@ -3543,8 +3533,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   pauseMenu: {fileID: 1755959272}
-  soundSettingsMenu: {fileID: 1800247623}
-  ammoText: {fileID: 701683959}
+  soundSettingsMenu: {fileID: 0}
+  ammoText: {fileID: 0}
+  resumeButton: {fileID: 0}
 --- !u!1 &1481709893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,8 +3794,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd85609669d2444cad809184cede20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myMixer: {fileID: 24100000, guid: b18fe5aad2ecf9b408161a6ea8205c04, type: 2}
-  musicSlider: {fileID: 382756476}
+  myMixer: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!114 &1502084024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3817,8 +3808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410a8d3cebd40cf49ae4c51a75e48822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _musicSlider: {fileID: 382756476}
-  _sfxSlider: {fileID: 1951482152}
+  _musicSlider: {fileID: 0}
+  _sfxSlider: {fileID: 0}
 --- !u!1 &1588060588
 GameObject:
   m_ObjectHideFlags: 0
