@@ -5,32 +5,48 @@ using UnityEngine.UI;
 
 public class AmmoText : MonoBehaviour
 {
-    Text text;
-    public static int ammoAmount;
+    Text ammoTextDisplay;
+    public static int ammoAmount = 5;
+    private int maxAmmo = 15;
 
-    // Use this for initialization
     void Start()
     {
-        text = GetComponent<Text>();
-        ammoAmount = 3;
+        ammoTextDisplay = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ammoAmount > 15)
+        if(ammoAmount > 0)
         {
-            ammoAmount = 15;
-            text.text = "15/15";
-        }
-        else if (ammoAmount > 0)
-        {
-            text.text = "" + ammoAmount + "/15";
+            if (ammoAmount > maxAmmo)
+            {
+                ammoAmount = maxAmmo;
+            }
+            ammoTextDisplay.text = ammoAmount + "/" + maxAmmo.ToString();
         }
         else
         {
-            text.text = "Out of Ammo!";
+            ammoTextDisplay.text = "Out of Ammo!";
         }
     }
+
+    //void updateAmmo()
+    //{
+    //    if (ammoAmount > maxAmmo)
+    //    {
+    //        ammoAmount = maxAmmo;
+    //        text.text = ammoAmount.ToString() + "/" + maxAmmo.ToString();
+    //    }
+    //    else if (ammoAmount > 0)
+    //    {
+    //        Debug.Log("Current ammo: " + ammoAmount);
+    //        text.text = ammoAmount + "/" + maxAmmo.ToString();
+    //    }
+    //    else
+    //    {
+    //        text.text = "Out of Ammo!";
+    //    }
+    //}
 }
 

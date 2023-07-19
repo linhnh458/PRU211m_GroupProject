@@ -25,7 +25,7 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pipe") || collision.gameObject.CompareTag("Boss"))
         {
-            AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            //AudioPooling.audioInstance.PlaySound(hitSoundClip);
             gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))

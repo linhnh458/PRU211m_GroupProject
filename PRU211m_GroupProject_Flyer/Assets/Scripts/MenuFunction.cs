@@ -12,20 +12,15 @@ public class MenuFunction : MonoBehaviour
     [SerializeField] GameObject soundSettingsMenu;
     [SerializeField] GameObject ammoText;
 
-    private Button resumeButton;
+    [SerializeField] GameObject resumeButton;
 
-    private void Awake()
-    {
-        // get the resume button, disable when game first starts
-        resumeButton = GameObject.FindGameObjectWithTag("ResumeButton").GetComponent<Button>();
-        resumeButton.enabled = false;
-    }
     void Start()
     {
+        resumeButton.SetActive(false);
         // enable resume button only when playerrefs data is available
         if (PlayerPrefs.HasKey("Score"))
         {
-            resumeButton.enabled = true;
+            resumeButton.SetActive(true);
         }
     }
 
@@ -40,7 +35,6 @@ public class MenuFunction : MonoBehaviour
                 pauseMenu.SetActive(false);
             }
         }
-        AmmoText.ammoAmount = 0;
         PlayerScript.isGameOver = false;
         ResetGame();
         SceneManager.LoadScene(1);
@@ -50,7 +44,8 @@ public class MenuFunction : MonoBehaviour
     void ResetGame()
     {
         PlayerPrefs.DeleteKey("Score");
-        HealthManager.currentHeart = 2; // reset initial hearts
+        HealthManager.currentHeart = 2;
+        AmmoText.ammoAmount = 5;
     }
 
     public void ExitMain()
@@ -129,8 +124,18 @@ public class MenuFunction : MonoBehaviour
     {
         AudioManager.Instance.sfxSource.Stop();
         SceneManager.LoadScene(0);
-        PlayerPrefs.SetInt("Score", ScoreScript.score);
-        PlayerPrefs.SetInt("Health", HealthManager.currentHeart);
+        if(isPaused == true)
+        {
+            PlayerPrefs.SetInt("Score", ScoreScript.score);
+            PlayerPrefs.SetInt("Health", HealthManager.currentHeart);
+            PlayerPrefs.SetInt("Ammo", AmmoText.ammoAmount);
+        }
+        else if(isPaused == false)
+        {
+            PlayerPrefs.DeleteKey("Score");
+            PlayerPrefs.DeleteKey("Health");
+            PlayerPrefs.DeleteKey("Ammo");
+        }
     }
 
     public void ResumeButtonClicked()
@@ -144,6 +149,7 @@ public class MenuFunction : MonoBehaviour
     public void LoadDataFromPlayerPrefs()
     {
         ScoreScript.score = PlayerPrefs.GetInt("Score");
+        AmmoText.ammoAmount = PlayerPrefs.GetInt("Ammo");
     }
 }
 

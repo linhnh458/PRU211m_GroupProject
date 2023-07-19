@@ -9,7 +9,6 @@ public class AmmoBox : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             AmmoText.ammoAmount += 5;
-            //Destroy(gameObject);
             gameObject.SetActive(false);
         }
     }

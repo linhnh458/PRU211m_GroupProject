@@ -41,7 +41,6 @@ public class PlayerScript : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
-        AmmoText.ammoAmount = 5;
     }
 
     // Update is called once per frame

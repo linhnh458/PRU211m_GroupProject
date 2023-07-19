@@ -81,12 +81,13 @@ public class PipeSpawn : MonoBehaviour
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
-        //Instantiate(ammo, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
-
+        Vector3 spawnPosition = new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0);
+        
         GameObject ammo = ObjectPoolingAmmo.instance.GetPooledObject();
         if (ammo != null)
         {
-            ammo.transform.position = new Vector3(transform.position.x, Random.Range(-5, 5), 0);
+            //ammo.transform.position = new Vector3(transform.position.x, Random.Range(-5, 5), 0);
+            ammo.transform.position = spawnPosition;
             ammo.transform.rotation = transform.rotation;
             ammo.SetActive(true);
         }
@@ -128,7 +129,6 @@ public class PipeSpawn : MonoBehaviour
     void SpawnFrog()
     {
         float randomValueFrog = Random.value;
-
 
         if (randomValueFrog <= spawnFrogThreshold)
         {

@@ -8,7 +8,7 @@ public class ObjectPoolingForMonster : MonoBehaviour
     public static ObjectPoolingForMonster instance;
 
     private List<GameObject> pooledObjects = new List<GameObject>();
-    //private int amountToPool = 12;
+    private int amountToPool = 12;
 
     [SerializeField]
     private GameObject Frog;
@@ -24,7 +24,7 @@ public class ObjectPoolingForMonster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < amountToPool; i++)
         {
             GameObject frog = Instantiate(Frog);
             frog.SetActive(false);
