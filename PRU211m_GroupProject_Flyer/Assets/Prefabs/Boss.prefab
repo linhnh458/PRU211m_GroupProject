@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45f3a9775567244b884ba1482b20ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1029306094057172817, guid: 523f6fe26560cca42a917db2bc18aad5, type: 3}
+  bulletPrefab: {fileID: 8088415747218070990, guid: 9682c2f6bc4b0b244b8d5d64f5d410c3, type: 3}
   playerTag: Player
   bulletSpeed: 10
   fireRate: 1.5
