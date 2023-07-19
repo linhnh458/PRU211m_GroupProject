@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class AmmoText : MonoBehaviour
 {
     Text text;
-    public static int ammoAmount = 5;
+    public static int ammoAmount;
 
     // Use this for initialization
     void Start()
     {
         text = GetComponent<Text>();
+        ammoAmount = 3;
     }
 
     // Update is called once per frame

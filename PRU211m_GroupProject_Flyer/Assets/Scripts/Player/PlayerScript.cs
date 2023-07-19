@@ -26,11 +26,16 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] Joystick joystick;
     public static bool isGameOver = false;
     [SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject soundSettingsMenu;
     [SerializeField] Button pauseButton;
+    [SerializeField] Button soundSettingsButton;
+
     public static object Instance { get; internal set; }
     private void Awake()
     {
         gameOverMenu.SetActive(false);
+        AudioManager.Instance.PlayMusic("Theme");
+        AudioManager.Instance.sfxSource.Stop();
     }
     void Start()
     {
@@ -63,7 +68,11 @@ public class PlayerScript : MonoBehaviour
         }
         if (isGameOver || gameObject.transform.position.x < -12)
         {
+            AudioManager.Instance.musicSource.Stop();
+            AudioManager.Instance.PlaySFX("GameOver");
             gameOverMenu.SetActive(true);
+            soundSettingsMenu.SetActive(false);
+            soundSettingsButton.gameObject.SetActive(false);
             pauseButton.gameObject.SetActive(false);
         }
     }
@@ -72,6 +81,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (AmmoText.ammoAmount > 0)
         {
+            AudioManager.Instance.PlaySFX("Firing");
             AmmoText.ammoAmount -= 1;
             // Bắn đạn và giảm số đạn
             GameObject bullet = BulletPooling.instance.GetPooledObject();
@@ -91,12 +101,14 @@ public class PlayerScript : MonoBehaviour
         {
             GetComponent<HealthManager>().Die();
             //AudioPooling.audioInstance.PlaySound(deadSoundClip);
+            AudioManager.Instance.PlaySFX("Die");
             SpawnExplosionEffect();
         }
         else if (collision.gameObject.CompareTag("PartOfFence"))
         {
             GetComponent<HealthManager>().TakeDamage(1);
             //AudioPooling.audioInstance.PlaySound(deadSoundClip);
+            AudioManager.Instance.PlaySFX("Die");
             collision.gameObject.SetActive(false);
             SpawnExplosionEffect();
         }
@@ -104,6 +116,7 @@ public class PlayerScript : MonoBehaviour
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
             //AudioPooling.audioInstance.PlaySound(hitSoundClip);
+            AudioManager.Instance.PlaySFX("Hit");
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // kill animal
             SpawnExplosionEffect();

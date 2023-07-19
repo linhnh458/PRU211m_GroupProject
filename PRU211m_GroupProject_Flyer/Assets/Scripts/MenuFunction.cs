@@ -9,9 +9,8 @@ public class MenuFunction : MonoBehaviour
     [SerializeField] bool isPaused = false;
     private PipeMove[] pipes;
     [SerializeField] GameObject pauseMenu;
-
-    public Slider volumeSlider;
-    public AudioMixer audioMixer;
+    [SerializeField] GameObject soundSettingsMenu;
+    [SerializeField] GameObject ammoText;
 
     private Button resumeButton;
 
@@ -28,10 +27,6 @@ public class MenuFunction : MonoBehaviour
         {
             resumeButton.enabled = true;
         }
-    }
-    public void SetVolume()
-    {
-        audioMixer.SetFloat("volume", volumeSlider.value);
     }
 
     public void StartNewGame()
@@ -97,8 +92,42 @@ public class MenuFunction : MonoBehaviour
         }
     }
 
+    public void SoundSettings()
+    {
+        Time.timeScale = 0f; // Tạm dừng thời gian trong game
+                             // Hiển thị giao diện hoặc thực hiện các hành động liên quan khi game tạm dừng
+
+        // Tạm dừng hoạt động của tất cả các đối tượng PipeMove
+        pipes = FindObjectsOfType<PipeMove>();
+        foreach (var pipe in pipes)
+        {
+            pipe.Pause();
+            pauseMenu.SetActive(false);
+        }
+        soundSettingsMenu.SetActive(true);
+        ammoText.SetActive(false);
+    }
+
+    public void ExitSoundSettings()
+    {
+        Time.timeScale = 1f; // Tiếp tục thời gian trong game
+                             // Ẩn giao diện hoặc thực hiện các hành động liên quan khi game tiếp tục
+
+        // Tiếp tục hoạt động của tất cả các đối tượng PipeMove
+        if (pipes != null)
+        {
+            foreach (var pipe in pipes)
+            {
+                pipe.Resume();
+                pauseMenu.SetActive(false);
+            }
+        }
+        soundSettingsMenu.SetActive(false);
+    }
+
     public void GoToMenu()
     {
+        AudioManager.Instance.sfxSource.Stop();
         SceneManager.LoadScene(0);
         PlayerPrefs.SetInt("Score", ScoreScript.score);
         PlayerPrefs.SetInt("Health", HealthManager.currentHeart);
