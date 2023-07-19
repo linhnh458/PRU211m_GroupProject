@@ -546,7 +546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &644573766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1202,8 +1202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   pauseMenu: {fileID: 0}
-  volumeSlider: {fileID: 0}
-  audioMixer: {fileID: 0}
+  soundSettingsMenu: {fileID: 0}
+  ammoText: {fileID: 0}
 --- !u!1 &1728923432
 GameObject:
   m_ObjectHideFlags: 0

@@ -392,7 +392,9 @@ MonoBehaviour:
   blinkInterval: 0.3
   joystick: {fileID: 319838370}
   gameOverMenu: {fileID: 984118581}
+  soundSettingsMenu: {fileID: 1800247623}
   pauseButton: {fileID: 975429592}
+  soundSettingsButton: {fileID: 622260562}
 --- !u!61 &186462735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3094,10 +3096,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalPipe: {fileID: 2330414366461658464, guid: d29a0cffafd481f41a4de5f0b82c458b, type: 3}
   Fence: {fileID: 2923459947255455412, guid: 1b5c24ad255c3ad4dafdcc8cbc0ea366, type: 3}
-  frog: {fileID: 6836376788600990905, guid: 0252ea095004ce44ca1ae0b4e87c4c68, type: 3}
-  spider: {fileID: 1332883511198170479, guid: b602d78136b4b0b41a583712aafbda7b, type: 3}
-  boss: {fileID: 7417522170934370598, guid: 8b258d00dce567444934a038203ced23, type: 3}
-  ammo: {fileID: 5581213605051673690, guid: 039584ca4b8fbd64c85d409d4b2bdd73, type: 3}
+  frog: {fileID: 7243066073509407455, guid: fdfc139cf185c2547919e2e1a04ecb16, type: 3}
+  spider: {fileID: 8697125657183517134, guid: 62ec445bcc4a2274cad8f8e0e3d3b727, type: 3}
+  boss: {fileID: 7742089902592127125, guid: fc4f1ce8f86ed8246a81113fb9b4e9c7, type: 3}
+  ammo: {fileID: 5490382532878389857, guid: 6892792989617574f9d19e040a552ccc, type: 3}
 --- !u!4 &1279973126
 Transform:
   m_ObjectHideFlags: 0
@@ -3125,7 +3127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41b7b4d7868b53448e077570402d940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frog: {fileID: 6836376788600990905, guid: 0252ea095004ce44ca1ae0b4e87c4c68, type: 3}
+  Frog: {fileID: 7243066073509407455, guid: fdfc139cf185c2547919e2e1a04ecb16, type: 3}
 --- !u!114 &1279973128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3138,7 +3140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1fd68ee6a068541b602c9612672bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spider: {fileID: 1332883511198170479, guid: b602d78136b4b0b41a583712aafbda7b, type: 3}
+  Spider: {fileID: 8697125657183517134, guid: 62ec445bcc4a2274cad8f8e0e3d3b727, type: 3}
 --- !u!114 &1279973129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,7 +3153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c10e31da0e291742a527fae70c762fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boss: {fileID: 7417522170934370598, guid: 8b258d00dce567444934a038203ced23, type: 3}
+  Boss: {fileID: 7742089902592127125, guid: fc4f1ce8f86ed8246a81113fb9b4e9c7, type: 3}
 --- !u!114 &1279973130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3177,7 +3179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac31cce6c5ab0fa44a2207eda5594d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ammo: {fileID: 5581213605051673690, guid: 039584ca4b8fbd64c85d409d4b2bdd73, type: 3}
+  Ammo: {fileID: 5490382532878389857, guid: 6892792989617574f9d19e040a552ccc, type: 3}
 --- !u!1 &1345519685
 GameObject:
   m_ObjectHideFlags: 0
