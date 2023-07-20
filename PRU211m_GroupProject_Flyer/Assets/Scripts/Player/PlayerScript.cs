@@ -98,7 +98,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pipe") || collision.gameObject.CompareTag("Boss"))
         {
-            GetComponent<HealthManager>().Die();
+            //GetComponent<HealthManager>().Die();
             //AudioPooling.audioInstance.PlaySound(deadSoundClip);
             AudioManager.Instance.PlaySFX("Die");
             SpawnExplosionEffect();

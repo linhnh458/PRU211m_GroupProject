@@ -53,6 +53,7 @@ public class BossController : MonoBehaviour
         Destroy(bullet, bulletLifetime);
     }
 
+    // boss hit by bullet
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // count number of bullet hits to kill the boss
@@ -73,11 +74,11 @@ public class BossController : MonoBehaviour
         float playerPositionX = player.position.x;
         if (gameObject.transform.position.x > playerPositionX)
         {
-            bossRenderer.flipX = true; // boss is on the right of player
+            bossRenderer.flipX = false; // boss is on the right of player
         }
         else
         {
-            bossRenderer.flipX = false; // boss is on the left
+            bossRenderer.flipX = true; // boss is on the left
         }
     }
 }

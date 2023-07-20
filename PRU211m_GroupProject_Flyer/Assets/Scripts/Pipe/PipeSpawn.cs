@@ -151,7 +151,7 @@ public class PipeSpawn : MonoBehaviour
     
     void SpawnBoss()
     {
-        if(count >= 10)
+        if(count >= 3)
         {
             GameObject boss = ObjectPoolingForBoss.instance.GetPooledObject();
             if (boss != null)
