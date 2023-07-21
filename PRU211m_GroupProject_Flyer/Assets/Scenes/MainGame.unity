@@ -320,10 +320,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa56fe977600424ab626afad39eacb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds: []
-  sfxSounds: []
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  musicSounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: 475f4837af487ce4a9e68bb227455e4c, type: 3}
+  sfxSounds:
+  - name: GameOver
+    clip: {fileID: 8300000, guid: aaa7ac81860329b4783da719115ac93c, type: 3}
+  - name: Firing
+    clip: {fileID: 8300000, guid: 07241e2aef3a15843a4ba17eac9bd117, type: 3}
+  - name: Hit
+    clip: {fileID: 8300000, guid: cad20486f008b8f41a6797c3a550b743, type: 3}
+  - name: Die
+    clip: {fileID: 8300000, guid: f8053bc5786edd245a90a3e34c3e6342, type: 3}
+  musicSource: {fileID: 961681008}
+  sfxSource: {fileID: 1347542478}
 --- !u!4 &149996272
 Transform:
   m_ObjectHideFlags: 0
@@ -3533,8 +3543,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   pauseMenu: {fileID: 1755959272}
-  soundSettingsMenu: {fileID: 0}
-  ammoText: {fileID: 0}
+  soundSettingsMenu: {fileID: 1800247623}
+  ammoText: {fileID: 701683959}
   resumeButton: {fileID: 0}
 --- !u!1 &1481709893
 GameObject:

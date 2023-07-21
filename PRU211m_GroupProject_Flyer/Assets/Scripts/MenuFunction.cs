@@ -11,7 +11,7 @@ public class MenuFunction : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject soundSettingsMenu;
     [SerializeField] GameObject ammoText;
-
+    [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject resumeButton;
 
     void Start()
@@ -97,7 +97,7 @@ public class MenuFunction : MonoBehaviour
         foreach (var pipe in pipes)
         {
             pipe.Pause();
-            pauseMenu.SetActive(false);
+            pauseButton.SetActive(false);
         }
         soundSettingsMenu.SetActive(true);
         ammoText.SetActive(false);
