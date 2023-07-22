@@ -63,6 +63,7 @@ public class HealthManager : MonoBehaviour
     public void HealHealth(int heal)
     {
         currentHeart += heal;
+        AudioManager.Instance.PlaySFX("HealBox");
 
         if (currentHeart > maxHeart)
         {

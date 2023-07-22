@@ -9,6 +9,7 @@ public class AmmoBox : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             AmmoText.ammoAmount += 5;
+            AudioManager.Instance.PlaySFX("GunLoad");
             gameObject.SetActive(false);
         }
     }

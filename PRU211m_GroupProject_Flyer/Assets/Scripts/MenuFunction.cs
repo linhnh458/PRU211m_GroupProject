@@ -97,8 +97,8 @@ public class MenuFunction : MonoBehaviour
         foreach (var pipe in pipes)
         {
             pipe.Pause();
-            pauseButton.SetActive(false);
         }
+        pauseButton.gameObject.SetActive(false);
         soundSettingsMenu.SetActive(true);
         ammoText.SetActive(false);
     }
@@ -117,11 +117,13 @@ public class MenuFunction : MonoBehaviour
                 pauseMenu.SetActive(false);
             }
         }
+        pauseButton.gameObject.SetActive(true);
         soundSettingsMenu.SetActive(false);
     }
 
     public void GoToMenu()
     {
+        AudioManager.Instance.musicSource.Stop();
         AudioManager.Instance.sfxSource.Stop();
         SceneManager.LoadScene(0);
         if(isPaused == true)

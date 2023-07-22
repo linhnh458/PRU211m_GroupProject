@@ -327,11 +327,15 @@ MonoBehaviour:
   - name: GameOver
     clip: {fileID: 8300000, guid: aaa7ac81860329b4783da719115ac93c, type: 3}
   - name: Firing
-    clip: {fileID: 8300000, guid: 07241e2aef3a15843a4ba17eac9bd117, type: 3}
+    clip: {fileID: 8300000, guid: d1d60bb1bd519b640920fae82eaf92c3, type: 3}
   - name: Hit
     clip: {fileID: 8300000, guid: cad20486f008b8f41a6797c3a550b743, type: 3}
   - name: Die
     clip: {fileID: 8300000, guid: f8053bc5786edd245a90a3e34c3e6342, type: 3}
+  - name: GunLoad
+    clip: {fileID: 8300000, guid: edc3b2313bb8dc742a8cc78b249bed63, type: 3}
+  - name: HealBox
+    clip: {fileID: 8300000, guid: 94bc5045734ee8548ac0a34be4fa2159, type: 3}
   musicSource: {fileID: 961681008}
   sfxSource: {fileID: 1347542478}
 --- !u!4 &149996272
@@ -2340,7 +2344,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3545,6 +3549,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1755959272}
   soundSettingsMenu: {fileID: 1800247623}
   ammoText: {fileID: 701683959}
+  pauseButton: {fileID: 975429590}
   resumeButton: {fileID: 0}
 --- !u!1 &1481709893
 GameObject:
@@ -3692,7 +3697,6 @@ GameObject:
   - component: {fileID: 1502084020}
   - component: {fileID: 1502084019}
   - component: {fileID: 1502084018}
-  - component: {fileID: 1502084022}
   - component: {fileID: 1502084024}
   m_Layer: 5
   m_Name: Canvas
@@ -3792,20 +3796,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1502084022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502084017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd85609669d2444cad809184cede20c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myMixer: {fileID: 0}
-  musicSlider: {fileID: 0}
 --- !u!114 &1502084024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3818,8 +3808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410a8d3cebd40cf49ae4c51a75e48822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _musicSlider: {fileID: 0}
-  _sfxSlider: {fileID: 0}
+  _musicSlider: {fileID: 382756476}
+  _sfxSlider: {fileID: 1951482152}
 --- !u!1 &1588060588
 GameObject:
   m_ObjectHideFlags: 0

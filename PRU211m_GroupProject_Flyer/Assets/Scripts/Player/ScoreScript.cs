@@ -21,6 +21,8 @@ public class ScoreScript : MonoBehaviour
             score = 0;
         }
         displayScore = 0;
+        scoreTextDisplay.text = "Score: " + displayScore.ToString();
+        scoreTextGO.text = "Score: " + displayScore.ToString();
     }
 
     private void Update()
