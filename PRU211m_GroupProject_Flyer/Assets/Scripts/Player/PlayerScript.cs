@@ -98,15 +98,13 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Pipe") || collision.gameObject.CompareTag("Boss"))
         {
-            //GetComponent<HealthManager>().Die();
-            //AudioPooling.audioInstance.PlaySound(deadSoundClip);
+            GetComponent<HealthManager>().Die();
             AudioManager.Instance.PlaySFX("Die");
             SpawnExplosionEffect();
         }
         else if (collision.gameObject.CompareTag("PartOfFence"))
         {
             GetComponent<HealthManager>().TakeDamage(1);
-            //AudioPooling.audioInstance.PlaySound(deadSoundClip);
             AudioManager.Instance.PlaySFX("Die");
             collision.gameObject.SetActive(false);
             SpawnExplosionEffect();
@@ -114,7 +112,6 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.CompareTag("Frog") || collision.gameObject.CompareTag("Spider"))
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
-            //AudioPooling.audioInstance.PlaySound(hitSoundClip);
             AudioManager.Instance.PlaySFX("Hit");
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // kill animal
@@ -132,7 +129,6 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.CompareTag("Poison"))
         {
             GetComponent<HealthManager>().TakeDamage(1); // lose a heart
-            //AudioPooling.audioInstance.PlaySound(hitSoundClip);
             StartCoroutine(Blink());
             collision.gameObject.SetActive(false); // disable boss bullet
             SpawnExplosionEffect();

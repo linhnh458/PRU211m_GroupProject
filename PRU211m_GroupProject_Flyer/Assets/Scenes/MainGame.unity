@@ -1497,7 +1497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 425, y: 201.42}
+  m_AnchoredPosition: {x: 504.4, y: 192.4}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &622260562
@@ -3545,6 +3545,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1755959272}
   soundSettingsMenu: {fileID: 1800247623}
   ammoText: {fileID: 701683959}
+  pauseButton: {fileID: 0}
   resumeButton: {fileID: 0}
 --- !u!1 &1481709893
 GameObject:
@@ -3804,8 +3805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd85609669d2444cad809184cede20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myMixer: {fileID: 0}
-  musicSlider: {fileID: 0}
 --- !u!114 &1502084024
 MonoBehaviour:
   m_ObjectHideFlags: 0
