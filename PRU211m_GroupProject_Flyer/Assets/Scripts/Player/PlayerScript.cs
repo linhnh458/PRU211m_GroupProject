@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float blinkInterval = 0.3f; // Interval between blink toggles
     private SpriteRenderer rend;
 
+    private PipeMove[] pipes;
     [SerializeField] Joystick joystick;
     public static bool isGameOver = false;
     [SerializeField] GameObject gameOverMenu;
@@ -69,6 +70,12 @@ public class PlayerScript : MonoBehaviour
         {
             AudioManager.Instance.musicSource.Stop();
             AudioManager.Instance.PlaySFX("GameOver");
+            Time.timeScale = 0f;
+            pipes = FindObjectsOfType<PipeMove>();
+            foreach (var pipe in pipes)
+            {
+                pipe.Pause();
+            }
             gameOverMenu.SetActive(true);
             soundSettingsMenu.SetActive(false);
             soundSettingsButton.gameObject.SetActive(false);

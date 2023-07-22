@@ -32,7 +32,6 @@ public class MenuFunction : MonoBehaviour
             foreach (var pipe in pipes)
             {
                 pipe.Resume();
-                pauseMenu.SetActive(false);
             }
         }
         PlayerScript.isGameOver = false;
@@ -59,29 +58,25 @@ public class MenuFunction : MonoBehaviour
 
         if (isPaused)
         {
-            Time.timeScale = 0f; // Tạm dừng thời gian trong game
-            // Hiển thị giao diện hoặc thực hiện các hành động liên quan khi game tạm dừng
-
-            // Tạm dừng hoạt động của tất cả các đối tượng PipeMove
+            pauseMenu.SetActive(true);
+            pauseButton.gameObject.SetActive(false);
+            Time.timeScale = 0f;
             pipes = FindObjectsOfType<PipeMove>();
             foreach (var pipe in pipes)
             {
                 pipe.Pause();
-                pauseMenu.SetActive(true);
             }
         }
         else
         {
-            Time.timeScale = 1f; // Tiếp tục thời gian trong game
-            // Ẩn giao diện hoặc thực hiện các hành động liên quan khi game tiếp tục
-
-            // Tiếp tục hoạt động của tất cả các đối tượng PipeMove
+            pauseMenu.SetActive(false);
+            pauseButton.gameObject.SetActive(true);
+            Time.timeScale = 1f;
             if (pipes != null)
             {
                 foreach (var pipe in pipes)
                 {
                     pipe.Resume();
-                    pauseMenu.SetActive(false);
                 }
             }
         }
@@ -89,10 +84,7 @@ public class MenuFunction : MonoBehaviour
 
     public void SoundSettings()
     {
-        Time.timeScale = 0f; // Tạm dừng thời gian trong game
-                             // Hiển thị giao diện hoặc thực hiện các hành động liên quan khi game tạm dừng
-
-        // Tạm dừng hoạt động của tất cả các đối tượng PipeMove
+        Time.timeScale = 0f;
         pipes = FindObjectsOfType<PipeMove>();
         foreach (var pipe in pipes)
         {
@@ -105,20 +97,17 @@ public class MenuFunction : MonoBehaviour
 
     public void ExitSoundSettings()
     {
-        Time.timeScale = 1f; // Tiếp tục thời gian trong game
-                             // Ẩn giao diện hoặc thực hiện các hành động liên quan khi game tiếp tục
-
-        // Tiếp tục hoạt động của tất cả các đối tượng PipeMove
+        Time.timeScale = 1f;
         if (pipes != null)
         {
             foreach (var pipe in pipes)
             {
                 pipe.Resume();
-                pauseMenu.SetActive(false);
             }
         }
         pauseButton.gameObject.SetActive(true);
         soundSettingsMenu.SetActive(false);
+        ammoText.SetActive(true);
     }
 
     public void GoToMenu()
