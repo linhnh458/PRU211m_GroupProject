@@ -23,7 +23,7 @@ public class AmmoText : MonoBehaviour
             {
                 ammoAmount = maxAmmo;
             }
-            ammoTextDisplay.text = ammoAmount + "/" + maxAmmo.ToString();
+            ammoTextDisplay.text = "Ammo amount: "+ ammoAmount + "/" + maxAmmo.ToString();
         }
         else
         {
