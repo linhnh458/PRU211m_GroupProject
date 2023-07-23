@@ -113,7 +113,7 @@ public class PipeSpawn : MonoBehaviour
             GameObject spider = ObjectPoolingForSpider.instance.GetPooledObject();
             if (spider != null)
             {
-                spider.transform.position = new Vector3(Random.Range(transform.position.x - 4, transform.position.x+2), 5, 0);
+                spider.transform.position = new Vector3(Random.Range(transform.position.x - 3, transform.position.x+2), 5, 0);
                 spider.transform.rotation = transform.rotation;
                 spider.SetActive(true);
             }
@@ -135,7 +135,7 @@ public class PipeSpawn : MonoBehaviour
             GameObject frog = ObjectPoolingForMonster.instance.GetPooledObject();
             if (frog != null)
             {
-                frog.transform.position = new Vector3(Random.Range(transform.position.x - 4, transform.position.x+2), -5, 0);
+                frog.transform.position = new Vector3(Random.Range(transform.position.x - 3, transform.position.x+2), -5, 0);
                 frog.transform.rotation = transform.rotation;
                 frog.SetActive(true);
             }
@@ -156,7 +156,7 @@ public class PipeSpawn : MonoBehaviour
             GameObject boss = ObjectPoolingForBoss.instance.GetPooledObject();
             if (boss != null)
             {
-                boss.transform.position = new Vector3(Random.Range(transform.position.x - 2, transform.position.x+1), 0, 0);
+                boss.transform.position = new Vector3(Random.Range(transform.position.x , transform.position.x+2), 0, 0);
                 boss.transform.rotation = transform.rotation;
                 boss.SetActive(true);
             }

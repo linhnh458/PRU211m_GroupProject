@@ -116,7 +116,7 @@ MonoBehaviour:
   playerTag: Player
   bulletSpeed: 5
   fireRate: 0.7
-  bulletLifetime: 4
+  bulletLifetime: 8
 --- !u!61 &-1420340859298693470
 BoxCollider2D:
   m_ObjectHideFlags: 0
