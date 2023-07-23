@@ -10,11 +10,11 @@ public class PipeSpawn : MonoBehaviour
     [SerializeField] GameObject spider;
     [SerializeField] GameObject boss;
     [SerializeField] GameObject ammo;
-    float spawnRate = 4.8f;
+    float spawnRate = 4.5f;
     float timer = 0.0f;
     float heightOffset = 4f;
-    private float initialDelay = 5.0f;
-    private float repeatDelay = 4.8f;
+    private float initialDelay = 4.7f;
+    private float repeatDelay = 4.5f;
 
     private float spawnFrogThreshold = 0.3f;
     private float spawnSpiderThreshold = 0.3f;
@@ -113,7 +113,7 @@ public class PipeSpawn : MonoBehaviour
             GameObject spider = ObjectPoolingForSpider.instance.GetPooledObject();
             if (spider != null)
             {
-                spider.transform.position = new Vector3(Random.Range(transform.position.x - 4, transform.position.x-1), 5, 0);
+                spider.transform.position = new Vector3(Random.Range(transform.position.x - 4, transform.position.x+2), 5, 0);
                 spider.transform.rotation = transform.rotation;
                 spider.SetActive(true);
             }
@@ -135,7 +135,7 @@ public class PipeSpawn : MonoBehaviour
             GameObject frog = ObjectPoolingForMonster.instance.GetPooledObject();
             if (frog != null)
             {
-                frog.transform.position = new Vector3(Random.Range(transform.position.x - 4, transform.position.x-1), -5, 0);
+                frog.transform.position = new Vector3(Random.Range(transform.position.x - 4, transform.position.x+2), -5, 0);
                 frog.transform.rotation = transform.rotation;
                 frog.SetActive(true);
             }
@@ -151,12 +151,12 @@ public class PipeSpawn : MonoBehaviour
     
     void SpawnBoss()
     {
-        if(count >= 3)
+        if(count >= 10)
         {
             GameObject boss = ObjectPoolingForBoss.instance.GetPooledObject();
             if (boss != null)
             {
-                boss.transform.position = new Vector3(Random.Range(transform.position.x - 4, transform.position.x-1), 0, 0);
+                boss.transform.position = new Vector3(Random.Range(transform.position.x - 2, transform.position.x+1), 0, 0);
                 boss.transform.rotation = transform.rotation;
                 boss.SetActive(true);
             }

@@ -115,7 +115,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8088415747218070990, guid: 9682c2f6bc4b0b244b8d5d64f5d410c3, type: 3}
   playerTag: Player
   bulletSpeed: 5
-  fireRate: 1.5
+  fireRate: 0.7
   bulletLifetime: 4
 --- !u!61 &-1420340859298693470
 BoxCollider2D:

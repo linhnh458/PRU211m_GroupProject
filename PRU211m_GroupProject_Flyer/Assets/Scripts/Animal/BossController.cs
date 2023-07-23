@@ -10,10 +10,10 @@ public class BossController : MonoBehaviour
     [SerializeField] string playerTag = "Player";  // Tag c?a ??i t??ng ng??i ch?i
     [SerializeField] float bulletSpeed = 5f;  // T?c ?? ??n
 
-    [SerializeField] private float fireRate = 2f;  
+    [SerializeField] private float fireRate = 0.7f;  
     private float nextFireTime = 0f;  // Th?i ?i?m b?n ??n ti?p theo
     private Transform player;  // Transform c?a ng??i ch?i
-    [SerializeField] float bulletLifetime = 8f;
+    [SerializeField] float bulletLifetime = 4f;
 
     ScoreScript scoreManager;
     private int hitCount = 0; // count bullets hit the boss
