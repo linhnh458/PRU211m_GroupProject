@@ -778,8 +778,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 225, y: 24}
-  m_SizeDelta: {x: 185, y: 45}
+  m_AnchoredPosition: {x: 269.2, y: 23.3}
+  m_SizeDelta: {x: 274, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &242526055
 MonoBehaviour:
@@ -803,7 +803,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 28
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -814,7 +814,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Highest score: 0'
+  m_Text: 'Highest score: 1234'
 --- !u!222 &242526056
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1501,8 +1501,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 252, y: -159}
-  m_SizeDelta: {x: 236.07831, y: 41.15039}
+  m_AnchoredPosition: {x: 228.5, y: -157.6}
+  m_SizeDelta: {x: 190, y: 41.15039}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &602392712
 MonoBehaviour:
@@ -1526,10 +1526,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 32
+    m_FontSize: 28
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3716,7 +3716,7 @@ MonoBehaviour:
   soundSettingsMenu: {fileID: 1800247623}
   ammoText: {fileID: 701683959}
   pauseButton: {fileID: 975429590}
-  soundSettingsButton: {fileID: 0}
+  soundSettingsButton: {fileID: 622260560}
   resumeButton: {fileID: 0}
 --- !u!1 &1481709893
 GameObject:
