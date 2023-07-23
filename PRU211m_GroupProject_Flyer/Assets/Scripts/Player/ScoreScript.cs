@@ -9,6 +9,9 @@ public class ScoreScript : MonoBehaviour
     private int displayScore;
     [SerializeField] Text scoreTextDisplay;
     [SerializeField] Text scoreTextGO;
+    [SerializeField] Text highestScoreDisplay;
+
+    public static int highestScore;
 
     void Start()
     {
@@ -16,9 +19,10 @@ public class ScoreScript : MonoBehaviour
         {
             score = PlayerPrefs.GetInt("Score");
         }
-        else
+        if (PlayerPrefs.HasKey("highestScore"))
         {
-            score = 0;
+            highestScore = PlayerPrefs.GetInt("highestScore");
+            Debug.Log("highest score: " + highestScore);
         }
         displayScore = 0;
         scoreTextDisplay.text = "Score: " + displayScore.ToString();
@@ -33,6 +37,11 @@ public class ScoreScript : MonoBehaviour
             scoreTextDisplay.text = "Score: " + displayScore.ToString();
             scoreTextGO.text = "Score: " + displayScore.ToString();
         }
+        if (score > highestScore)
+        {
+            highestScore = score;
+        }
+        highestScoreDisplay.text = "Highest score: " + highestScore.ToString();
     }
     public void AddScore(int scoreToAdd)
     {

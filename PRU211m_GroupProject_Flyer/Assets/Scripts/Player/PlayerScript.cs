@@ -80,6 +80,7 @@ public class PlayerScript : MonoBehaviour
             soundSettingsMenu.SetActive(false);
             soundSettingsButton.gameObject.SetActive(false);
             pauseButton.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("highestScore", ScoreScript.highestScore);
         }
     }
 

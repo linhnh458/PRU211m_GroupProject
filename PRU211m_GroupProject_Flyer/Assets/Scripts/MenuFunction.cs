@@ -44,8 +44,10 @@ public class MenuFunction : MonoBehaviour
     void ResetGame()
     {
         PlayerPrefs.DeleteKey("Score");
+        ScoreScript.score = 0;
         HealthManager.currentHeart = 2;
         AmmoText.ammoAmount = 5;
+        ScoreScript.highestScore = PlayerPrefs.GetInt("highestScore");
     }
 
     public void ExitMain()
