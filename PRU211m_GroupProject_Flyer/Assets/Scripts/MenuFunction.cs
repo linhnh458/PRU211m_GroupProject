@@ -12,6 +12,7 @@ public class MenuFunction : MonoBehaviour
     [SerializeField] GameObject soundSettingsMenu;
     [SerializeField] GameObject ammoText;
     [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject soundSettingsButton;
     [SerializeField] GameObject resumeButton;
 
     void Start()
@@ -59,6 +60,7 @@ public class MenuFunction : MonoBehaviour
         if (isPaused)
         {
             pauseMenu.SetActive(true);
+            soundSettingsButton.SetActive(false);
             pauseButton.gameObject.SetActive(false);
             Time.timeScale = 0f;
             pipes = FindObjectsOfType<PipeMove>();
@@ -70,6 +72,7 @@ public class MenuFunction : MonoBehaviour
         else
         {
             pauseMenu.SetActive(false);
+            soundSettingsButton.SetActive(true);
             pauseButton.gameObject.SetActive(true);
             Time.timeScale = 1f;
             if (pipes != null)
